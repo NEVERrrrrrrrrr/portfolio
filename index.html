@@ -1,0 +1,2826 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="3YRxxlfD7VcKNMFfGP8Se5">
+<head data-page-node-id="j0jv27S02MOYIZhehD3QHA">
+<meta charset="UTF-8" data-page-node-id="RZKNDTcuZ7K9dNJPecnMBa">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" data-page-node-id="QUvUG7C4Pn6gebJ4Ow7rBq">
+<title>作品集 — 学生开发者</title>
+<meta name="description" content="学生开发者作品集。课程与个人项目、项目详情与联系方式。" data-page-node-id="0nuyCCuiw4qBhuHkBYYQUp">
+<meta name="theme-color" content="#000000" data-page-node-id="vjiiHZaRaCXur86yB739C5">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cg transform='rotate(-30 12 12)'%3E%3Ccircle cx='7.3' cy='3.2' r='1.45'/%3E%3Crect x='5.5' y='4.7' width='3.6' height='14.6' rx='1.8'/%3E%3Crect x='14.9' y='4.7' width='3.6' height='14.6' rx='1.8'/%3E%3Ccircle cx='16.7' cy='20.8' r='1.45'/%3E%3C/g%3E%3C/svg%3E" data-page-node-id="1JUzRQfVT5y9KVvjCKP6fG">
+<link rel="preconnect" href="https://fonts.googleapis.com" data-page-node-id="lNU9SDO0WL6brp30VelMb5">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin data-page-node-id="uYGh1O73S8iFthcuODpktg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&family=Instrument+Serif:ital@1&display=swap" data-page-node-id="6U8tR0BWyumG4sDIRmCPUY">
+<style>
+html, body { background: #000000 !important; color: #ffffff; }
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("inter.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Instrument Serif";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("instrument-serif-italic.woff2") format("woff2");
+}
+
+:root {
+  --bg: #000000;
+  --text: #ffffff;
+  --muted: #9a9a9a;
+  --stat: #d8d8d8;
+  --border: rgba(255, 255, 255, 0.16);
+  --border-soft: rgba(255, 255, 255, 0.12);
+
+  --logo: 15.5px;
+  --logo-mark: 22px;
+  --nav: 14px;
+  --nav-h: 40px;
+  --btn: 13.5px;
+  --btn-h: 40px;
+  --hero-btn-h: 42px;
+  --h1: 44px;
+  --lede: 15.5px;
+  --badge: 12.5px;
+  --stat-size: 13.5px;
+  --header-y: 22px;
+  --header-x: 40px;
+  --stats-x: 72px;
+  --stats-y: 36px;
+  --hero-gap: 30px;
+  --copy-max: 860px;
+  --lede-max: 470px;
+
+  /* portfolio additions */
+  --card-title: 15px;
+  --card-body: 12.8px;
+  --chip: 11.5px;
+  --works-gap: 18px;
+  --work-rows: 2;
+  --work-rows-tall: 2;
+}
+
+html, body { background: #000000; background: var(--bg, #000000); color: #ffffff; color: var(--text, #ffffff); }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Source Han Sans SC", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Chinese text sets tighter and taller than Latin at the same size:
+   relax the negative tracking, open up the line height, and never
+   let a short label break mid-phrase. */
+:lang(zh) ,
+body { word-break: normal; line-break: strict; }
+.hero-title, .lede, .work-title, .work-blurb, .modal-title, .modal-lede,
+.modal-section p, .modal-list li, .work-kicker, .modal-kicker {
+  font-feature-settings: "palt" 1;
+}
+.work-title, .modal-title { letter-spacing: -0.01em; }
+.lede, .work-blurb, .modal-lede, .modal-section p, .modal-list li { letter-spacing: 0; }
+.work-kicker, .modal-kicker, .works-label { letter-spacing: 0.08em; }
+.work-tag, .filters button, .stat, .badge { white-space: nowrap; }
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; }
+button { border: 0; background: none; color: inherit; }
+
+/* ============ layer 2: backdrop ============ */
+.hero-photo {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(120% 78% at 50% 104%, rgba(255, 255, 255, 0.055) 0%, rgba(255, 255, 255, 0) 62%),
+    radial-gradient(70% 46% at 8% 8%, rgba(150, 175, 215, 0.07) 0%, rgba(255, 255, 255, 0) 70%),
+    #000000;
+  pointer-events: none;
+}
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.22) 42%, rgba(0, 0, 0, 0.88) 100%);
+}
+
+/* ============ layer 3: page ============ */
+.page {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* ============ layer 4: grain ============ */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ============ header ============ */
+.header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: var(--header-y) var(--header-x) 10px;
+  z-index: 50;
+  position: relative;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  justify-self: start;
+  font-size: var(--logo);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+.logo svg { width: var(--logo-mark); height: var(--logo-mark); display: block; flex: none; }
+.logo-suffix { font-weight: 400; }
+
+#site-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-self: center;
+}
+
+#site-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--nav-h);
+  padding: 0 18px;
+  border-radius: 7px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(198, 198, 198, 0.55);
+  background: linear-gradient(105deg, #050505 0%, #2a2a2a 48%, #4a4a4a 100%);
+  color: #f3f3f3;
+  font-size: var(--nav);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+#site-nav a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.16) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+#site-nav a:hover,
+#site-nav a[aria-current="true"] {
+  border-color: rgba(235, 235, 235, 0.9);
+  background: linear-gradient(105deg, #111 0%, #3a3a3a 45%, #6a6a6a 100%);
+  box-shadow: 0 0 18px rgba(200, 210, 230, 0.18);
+}
+#site-nav a:hover::before { transform: translateX(120%); }
+
+.header-cta { justify-self: end; }
+
+/* ============ buttons ============ */
+.btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--btn-h);
+  padding: 0 16px;
+  border-radius: 6px;
+  font-size: var(--btn);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, color 0.35s ease, filter 0.35s ease;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 20%, rgba(255, 255, 255, 0.45) 48%, transparent 76%);
+  transform: translateX(-130%);
+  transition: transform 0.65s ease;
+  pointer-events: none;
+}
+.btn:hover::after { transform: translateX(130%); }
+
+.btn-solid {
+  background: linear-gradient(180deg, #ffffff 0%, #e7e7e7 48%, #cfcfcf 100%);
+  color: #111;
+  border: 1px solid #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+.btn-solid:hover {
+  background: linear-gradient(180deg, #fff 0%, #f3f6ff 42%, #d5def2 100%);
+  border-color: #f2f6ff;
+  box-shadow: inset 0 1px 0 #fff, 0 0 22px rgba(186, 208, 255, 0.35), 0 8px 18px rgba(255, 255, 255, 0.12);
+}
+.hero-actions .btn-solid:hover {
+  box-shadow: inset 0 1px 0 #fff, 0 0 26px rgba(186, 208, 255, 0.4), 0 8px 18px rgba(255, 255, 255, 0.14);
+}
+
+.btn-ghost {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.45) 50%, rgba(160, 175, 200, 0.08));
+  color: #fff;
+  border: 1px solid rgba(198, 198, 198, 0.45);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.btn-ghost:hover {
+  background: linear-gradient(135deg, rgba(210, 225, 255, 0.18), rgba(0, 0, 0, 0.35) 48%, rgba(180, 195, 220, 0.16));
+  border-color: rgba(220, 230, 255, 0.75);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 0 20px rgba(170, 200, 255, 0.22);
+}
+.hero-actions .btn-ghost {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(0, 0, 0, 0.5) 46%, rgba(150, 170, 200, 0.1));
+  border: 1px solid rgba(198, 198, 198, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.hero-actions .btn-ghost:hover {
+  border-color: rgba(220, 230, 255, 0.8);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 0 24px rgba(170, 200, 255, 0.28);
+}
+
+.hero-actions .btn { height: var(--hero-btn-h); padding: 0 18px; }
+
+/* ============ burger ============ */
+.burger {
+  display: none;
+  position: relative;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: rgba(8, 8, 8, 0.55);
+  z-index: 60;
+  cursor: pointer;
+  place-items: center;
+  gap: 5px;
+}
+.burger span {
+  display: block;
+  width: 16px;
+  height: 1.5px;
+  background: #fff;
+  border-radius: 1px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.burger:hover { border-color: rgba(255, 255, 255, 0.32); background: rgba(255, 255, 255, 0.05); }
+
+body.menu-open .burger span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+body.menu-open .burger span:nth-child(2) { opacity: 0; transition: opacity 0.2s ease; }
+body.menu-open .burger span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+body.menu-open { overflow: hidden; }
+
+.menu-backdrop { display: none; }
+
+/* ============ main / hero ============ */
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.hero {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 4px 24px var(--hero-gap);
+  min-height: 0;
+  flex: none;
+}
+
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: var(--copy-max);
+  width: 100%;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  padding: 9px 15px;
+  border: 0;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #7d7d7d 0%, #2a2a2a 52%, #0a0a0a 100%);
+  color: #f2f2f2;
+  font-size: var(--badge);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+.badge-star {
+  display: block;
+  flex: none;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.45));
+  transform-origin: 50% 50%;
+  animation: in-star 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.28s both;
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: var(--h1);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1.28;
+  color: #fff;
+}
+.headline-line {
+  display: block;
+  overflow: hidden;
+  padding: 0.06em 0.15em 0.14em;
+}
+/* Latin gets the italic serif flourish; Chinese has no true italic, so it
+   falls back to a lighter weight + wider tracking to read as emphasis. */
+.hero-title em {
+  font-family: "Instrument Serif", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.08em;
+  letter-spacing: -0.03em;
+  color: #9a9a9a;
+  animation: in-em 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.72s both;
+}
+.hero-title em:lang(zh-CN):not(.em-serif) {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1em;
+  letter-spacing: 0.06em;
+}
+
+.lede {
+  max-width: var(--lede-max);
+  margin-top: 14px;
+  color: #9a9a9a;
+  font-size: var(--lede);
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0;
+  text-wrap: pretty;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* ============ works ============ */
+.works {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 max(var(--header-x), 24px) 18px;
+  width: 100%;
+  max-width: 1360px;
+  margin: 0 auto;
+}
+
+.works-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.works-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.works-label::before {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  display: block;
+}
+.works-label .count { color: #5f5f5f; letter-spacing: 0.04em; }
+
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.filters button {
+  position: relative;
+  height: 29px;
+  padding: 0 13px;
+  border-radius: 7px;
+  border: 1px solid rgba(198, 198, 198, 0.3);
+  background: linear-gradient(105deg, #050505 0%, #1e1e1e 60%, #303030 100%);
+  color: #cfcfcf;
+  font-size: 11.5px;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, color 0.35s ease;
+}
+.filters button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 255, 255, 0.16) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+.filters button:hover {
+  color: #f3f3f3;
+  border-color: rgba(235, 235, 235, 0.7);
+  background: linear-gradient(105deg, #111 0%, #3a3a3a 45%, #5c5c5c 100%);
+}
+.filters button:hover::before { transform: translateX(120%); }
+.filters button[aria-pressed="true"] {
+  color: #111;
+  border-color: #fff;
+  background: linear-gradient(180deg, #ffffff 0%, #e7e7e7 48%, #cfcfcf 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 0 16px rgba(186, 208, 255, 0.22);
+}
+.filters button[aria-pressed="true"]::before { display: none; }
+
+.works-grid {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: repeat(var(--work-rows), minmax(0, 1fr));
+  gap: var(--works-gap);
+}
+
+.work {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 16px 16px 15px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.055) 0%, rgba(255, 255, 255, 0.015) 38%, rgba(0, 0, 0, 0.5) 100%);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease;
+}
+.work::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 22%, rgba(255, 255, 255, 0.1) 48%, transparent 74%);
+  transform: translateX(-130%);
+  transition: transform 0.75s ease;
+  pointer-events: none;
+  z-index: 3;
+}
+.work:hover, .work:focus-visible {
+  outline: none;
+  transform: translateY(-4px);
+  border-color: rgba(235, 235, 235, 0.55);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 40%, rgba(0, 0, 0, 0.42) 100%);
+  box-shadow: 0 0 26px rgba(190, 208, 240, 0.16), 0 14px 34px rgba(0, 0, 0, 0.55);
+}
+.work:hover::after, .work:focus-visible::after { transform: translateX(130%); }
+
+.work-index {
+  position: absolute;
+  top: 13px;
+  right: 14px;
+  z-index: 4;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.34);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.4s ease;
+}
+.work:hover .work-index { color: rgba(255, 255, 255, 0.62); }
+
+.work-thumb {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+}
+.work:hover .work-thumb { opacity: 0.78; }
+.work-thumb-tint {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 52%, rgba(0, 0, 0, 0.9) 100%);
+}
+.work-body { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 6px; }
+
+.work-kicker {
+  font-size: 10.5px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.work-kicker {
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.work-title {
+  font-size: var(--card-title);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #fff;
+  line-height: 1.42;
+}
+.work-title em {
+  font-family: "Instrument Serif", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.07em;
+  letter-spacing: -0.02em;
+  color: #cfcfcf;
+}
+.work-title em:lang(zh-CN) {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1em;
+  letter-spacing: 0.02em;
+}
+.work-blurb {
+  font-size: var(--card-body);
+  line-height: 1.65;
+  letter-spacing: 0;
+  color: #8f8f8f;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.work-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 3px; }
+.work-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 21px;
+  padding: 0 8px;
+  border-radius: 5px;
+  border: 1px solid rgba(198, 198, 198, 0.24);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.4));
+  color: #b9b9b9;
+  font-size: var(--chip);
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.work.is-hidden { display: none; }
+
+/* empty state */
+.works-empty {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.works-empty.is-on { display: flex; }
+
+/* ============ stats footer ============ */
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 var(--stats-x) var(--stats-y);
+  padding-bottom: max(var(--stats-y), env(safe-area-inset-bottom));
+  color: #d8d8d8;
+}
+.stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: var(--stat-size);
+  letter-spacing: -0.015em;
+  white-space: nowrap;
+}
+.stat-icon { width: 20px; height: 20px; flex: none; display: block; }
+.stat-icon-wide { width: 38px; height: 21px; flex: none; display: block; }
+
+/* ============ modal ============ */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.32s ease, visibility 0.32s ease;
+}
+.modal.is-open { opacity: 1; visibility: visible; }
+
+.modal-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 4, 4, 0.66);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.32s ease;
+}
+.modal.is-open .modal-scrim { opacity: 1; }
+
+.modal-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 660px;
+  max-height: min(84vh, 760px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background:
+    linear-gradient(165deg, rgba(255, 255, 255, 0.085) 0%, rgba(255, 255, 255, 0.02) 34%, rgba(6, 6, 6, 0.94) 100%),
+    #060606;
+  box-shadow: 0 0 40px rgba(180, 200, 240, 0.12), 0 30px 70px rgba(0, 0, 0, 0.75);
+  padding: 28px 30px 30px;
+  transform: translateY(16px) scale(0.975);
+  opacity: 0;
+  transition: transform 0.42s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.36s ease;
+}
+.modal.is-open .modal-card { transform: none; opacity: 1; }
+
+.modal-card::-webkit-scrollbar { width: 8px; }
+.modal-card::-webkit-scrollbar-track { background: transparent; }
+.modal-card::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.14); border-radius: 4px; }
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  border: 1px solid var(--border);
+  background: rgba(8, 8, 8, 0.6);
+  color: #d8d8d8;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+.modal-close:hover { border-color: rgba(255, 255, 255, 0.4); background: rgba(255, 255, 255, 0.07); color: #fff; }
+.modal-close svg { display: block; }
+
+.modal-hero {
+  height: 150px;
+  margin: -28px -30px 22px;
+  border-radius: 14px 14px 0 0;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid var(--border-soft);
+}
+.modal-hero .work-thumb-tint { background: linear-gradient(180deg, rgba(0, 0, 0, 0.06) 0%, rgba(6, 6, 6, 0.86) 100%); }
+
+.modal-kicker {
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 9px;
+}
+.modal-title {
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  color: #fff;
+}
+.modal-title em {
+  font-family: "Instrument Serif", "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.07em;
+  letter-spacing: -0.02em;
+  color: #cfcfcf;
+}
+.modal-title em:lang(zh-CN) {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1em;
+  letter-spacing: 0.02em;
+}
+.modal-lede {
+  margin-top: 12px;
+  font-size: 14.5px;
+  line-height: 1.8;
+  letter-spacing: 0;
+  color: #a5a5a5;
+}
+
+.modal-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 22px 0 4px;
+  border: 1px solid var(--border-soft);
+  border-radius: 9px;
+  overflow: hidden;
+  background: var(--border-soft);
+}
+.modal-meta div { background: #080808; padding: 11px 13px; }
+.modal-meta dt {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #6c6c6c;
+  margin-bottom: 5px;
+}
+.modal-meta dd { font-size: 13px; color: #e2e2e2; letter-spacing: 0; line-height: 1.5; }
+
+.modal-section { margin-top: 22px; }
+.modal-section h3 {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #8a8a8a;
+  margin-bottom: 10px;
+}
+.modal-section p {
+  font-size: 13.8px;
+  line-height: 1.85;
+  letter-spacing: 0;
+  color: #9d9d9d;
+}
+.modal-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.modal-list li {
+  position: relative;
+  padding-left: 17px;
+  font-size: 13.5px;
+  line-height: 1.8;
+  letter-spacing: 0;
+  color: #a5a5a5;
+}
+.modal-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #d8d8d8;
+  opacity: 0.7;
+}
+
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border-soft);
+}
+
+/* ============================================================
+   Demo preview overlay
+   Each project ships a small self-contained demo. Clicking
+   "在线预览" opens it full-screen on top of the page, so the
+   whole portfolio stays one file (no external .html needed).
+   ============================================================ */
+.preview {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  flex-direction: column;
+  background: #050505;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.preview.is-open { opacity: 1; visibility: visible; }
+
+.preview-bar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 18px;
+  padding-top: max(12px, env(safe-area-inset-top));
+  border-bottom: 1px solid var(--border-soft);
+  background: rgba(8, 8, 8, 0.82);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+.preview-bar-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+.preview-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: none;
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+}
+.preview-bar-tag {
+  padding: 0 8px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid rgba(198, 198, 198, 0.24);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.4));
+  color: #b9b9b9;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.preview-bar-spacer { flex: 1 1 auto; }
+
+.preview-stage {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.preview-stage::-webkit-scrollbar { width: 10px; height: 10px; }
+.preview-stage::-webkit-scrollbar-track { background: transparent; }
+.preview-stage::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.14); border-radius: 5px; }
+
+/* ---- shared skin for the embedded demos ---- */
+.demo {
+  --d-bg: #0a0a0a;
+  --d-panel: linear-gradient(165deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.015) 40%, rgba(0, 0, 0, 0.5) 100%);
+  --d-line: rgba(255, 255, 255, 0.14);
+  --d-line-soft: rgba(255, 255, 255, 0.09);
+  --d-text: #f0f0f0;
+  --d-mut: #8f8f8f;
+  --d-accent: #cfd8e8;
+  min-height: 100%;
+  background:
+    radial-gradient(120% 60% at 50% -10%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 60%),
+    var(--d-bg);
+  color: var(--d-text);
+  font-size: 14px;
+  line-height: 1.65;
+  letter-spacing: 0;
+  padding: 30px 24px 48px;
+}
+.demo * { box-sizing: border-box; }
+.demo .wrap { max-width: 780px; margin: 0 auto; }
+.demo .wrap-wide { max-width: 1020px; margin: 0 auto; }
+
+.demo .d-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--d-mut);
+  margin-bottom: 10px;
+}
+.demo .d-eyebrow::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+.demo h2.d-title {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.demo p.d-sub { color: var(--d-mut); font-size: 13.5px; margin-bottom: 24px; }
+
+.demo .card {
+  border: 1px solid var(--d-line);
+  border-radius: 12px;
+  background: var(--d-panel);
+  padding: 18px;
+}
+.demo .card + .card { margin-top: 14px; }
+.demo .card h3 {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.demo label.d-label {
+  display: block;
+  font-size: 12px;
+  color: var(--d-mut);
+  margin-bottom: 6px;
+  letter-spacing: 0;
+}
+.demo input[type="text"],
+.demo input[type="number"],
+.demo input[type="email"],
+.demo input[type="date"],
+.demo select,
+.demo textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--d-line);
+  background: rgba(0, 0, 0, 0.45);
+  color: #f0f0f0;
+  font-family: inherit;
+  font-size: 13.5px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.demo textarea { resize: vertical; min-height: 84px; line-height: 1.6; }
+.demo input::placeholder, .demo textarea::placeholder { color: #5c5c5c; }
+.demo input:focus, .demo select:focus, .demo textarea:focus {
+  outline: none;
+  border-color: rgba(220, 230, 255, 0.6);
+  box-shadow: 0 0 0 3px rgba(170, 200, 255, 0.1);
+}
+.demo select { appearance: none; cursor: pointer; }
+.demo .field { margin-bottom: 14px; }
+.demo .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.demo .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+
+.demo .d-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 7px;
+  border: 1px solid #fff;
+  background: linear-gradient(180deg, #ffffff 0%, #e7e7e7 48%, #cfcfcf 100%);
+  color: #111;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.demo .d-btn:hover {
+  background: linear-gradient(180deg, #fff 0%, #f3f6ff 42%, #d5def2 100%);
+  box-shadow: 0 0 18px rgba(186, 208, 255, 0.3);
+}
+.demo .d-btn-ghost {
+  border-color: rgba(198, 198, 198, 0.45);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.45) 50%, rgba(160, 175, 200, 0.08));
+  color: #fff;
+}
+.demo .d-btn-ghost:hover {
+  border-color: rgba(220, 230, 255, 0.75);
+  background: linear-gradient(135deg, rgba(210, 225, 255, 0.18), rgba(0, 0, 0, 0.35) 48%, rgba(180, 195, 220, 0.16));
+}
+.demo .d-actions { display: flex; flex-wrap: wrap; gap: 9px; }
+
+.demo table.d-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.demo table.d-table th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--d-mut);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0 10px 9px;
+  border-bottom: 1px solid var(--d-line);
+}
+.demo table.d-table td {
+  padding: 11px 10px;
+  border-bottom: 1px solid var(--d-line-soft);
+  color: #dcdcdc;
+}
+.demo table.d-table tbody tr:last-child td { border-bottom: 0; }
+.demo table.d-table tbody tr:hover td { background: rgba(255, 255, 255, 0.035); }
+
+.demo .d-tag {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 5px;
+  border: 1px solid rgba(198, 198, 198, 0.24);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.4));
+  color: #b9b9b9;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.demo .d-ok { color: #4ade80; }
+.demo .d-warn { color: #fbbf24; }
+.demo .d-info { color: #9db8e8; }
+
+.demo .d-msg {
+  display: none;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  border: 1px solid rgba(74, 222, 128, 0.3);
+  background: rgba(74, 222, 128, 0.08);
+  color: #86efac;
+}
+.demo .d-msg.is-on { display: block; }
+.demo .d-msg.is-err {
+  border-color: rgba(248, 113, 113, 0.35);
+  background: rgba(248, 113, 113, 0.08);
+  color: #fca5a5;
+}
+.demo .d-empty { color: #6a6a6a; font-size: 13px; padding: 14px 0; text-align: center; }
+
+.demo .d-err { display: none; font-size: 11.5px; color: #fca5a5; margin-top: 5px; }
+.demo .d-err.is-on { display: block; }
+.demo input.d-invalid, .demo textarea.d-invalid { border-color: rgba(248, 113, 113, 0.55); }
+
+/* score bars */
+.demo .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 9px; font-size: 12.5px; }
+.demo .bar-name { width: 62px; flex: none; color: var(--d-mut); }
+.demo .bar-track { flex: 1 1 auto; height: 8px; border-radius: 4px; background: rgba(255, 255, 255, 0.07); overflow: hidden; }
+.demo .bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #6f7d96, #cfd8e8);
+  transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.demo .bar-val { width: 42px; flex: none; text-align: right; color: #dcdcdc; font-variant-numeric: tabular-nums; }
+
+.demo .d-stat-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 18px; }
+.demo .d-stat { border: 1px solid var(--d-line-soft); border-radius: 10px; padding: 13px; background: rgba(255, 255, 255, 0.025); }
+.demo .d-stat-l { font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #6c6c6c; margin-bottom: 6px; }
+.demo .d-stat-v { font-size: 20px; font-weight: 500; color: #fff; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+
+/* gallery */
+.demo .gal { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.demo .gal-item {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  border: 1px solid var(--d-line);
+  overflow: hidden;
+  cursor: zoom-in;
+  padding: 0;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.demo .gal-item:hover { transform: translateY(-3px); border-color: rgba(235, 235, 235, 0.5); box-shadow: 0 12px 26px rgba(0, 0, 0, 0.6); }
+.demo .gal-item span {
+  position: absolute;
+  left: 10px;
+  bottom: 8px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+.demo .lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.86);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+.demo .lightbox.is-open { opacity: 1; visibility: visible; }
+.demo .lightbox-inner {
+  width: min(560px, 100%);
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: grid;
+  place-items: center;
+  color: #e8e8e8;
+  font-size: 15px;
+  transform: scale(0.94);
+  transition: transform 0.34s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.demo .lightbox.is-open .lightbox-inner { transform: none; }
+
+/* weather */
+.demo .weather-panel {
+  border-radius: 14px;
+  border: 1px solid var(--d-line);
+  padding: 30px 26px;
+  text-align: center;
+  transition: background 1s ease;
+  background: radial-gradient(120% 100% at 50% 0%, #2a3040 0%, #101319 55%, #07080b 100%);
+}
+.demo .weather-temp { font-size: 52px; font-weight: 300; letter-spacing: -0.04em; color: #fff; line-height: 1.1; }
+.demo .weather-city { font-size: 15px; color: #e2e2e2; margin-top: 4px; }
+.demo .weather-cond { font-size: 13px; color: var(--d-mut); margin-top: 6px; }
+
+/* campus nav */
+.demo .nav-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.demo .nav-card {
+  border: 1px solid var(--d-line);
+  border-radius: 11px;
+  padding: 16px;
+  background: var(--d-panel);
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.demo .nav-card:hover { transform: translateY(-3px); border-color: rgba(235, 235, 235, 0.45); }
+.demo .nav-card h4 { font-size: 14px; font-weight: 500; color: #fff; margin-bottom: 6px; }
+.demo .nav-card p { font-size: 12.5px; color: var(--d-mut); margin-bottom: 10px; }
+
+/* blog */
+.demo .blog-item {
+  border-bottom: 1px solid var(--d-line-soft);
+  padding: 16px 0;
+  cursor: pointer;
+  transition: padding-left 0.3s ease;
+}
+.demo .blog-item:last-child { border-bottom: 0; }
+.demo .blog-item:hover { padding-left: 6px; }
+.demo .blog-item h4 { font-size: 15px; font-weight: 500; color: #fff; margin-bottom: 5px; letter-spacing: -0.01em; }
+.demo .blog-item p { font-size: 13px; color: var(--d-mut); }
+.demo .blog-meta { font-size: 11.5px; color: #6a6a6a; margin-top: 7px; }
+.demo .blog-body { display: none; margin-top: 12px; font-size: 13.5px; color: #b8b8b8; line-height: 1.85; }
+.demo .blog-item.is-open .blog-body { display: block; }
+
+/* layout helpers inside demos */
+.demo .stack { display: flex; flex-direction: column; gap: 14px; }
+.demo .row-between { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.demo .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.demo .mt { margin-top: 14px; }
+
+/* demo placeholder artwork */
+.demo .tg-1 { background: radial-gradient(120% 100% at 12% 8%, #3c4a63 0%, #12161f 48%, #05060a 100%); }
+.demo .tg-2 { background: radial-gradient(120% 100% at 88% 14%, #4a3a58 0%, #171220 48%, #06050a 100%); }
+.demo .tg-3 { background: radial-gradient(120% 100% at 20% 88%, #2f4a44 0%, #0f1a18 50%, #040706 100%); }
+.demo .tg-4 { background: radial-gradient(120% 100% at 80% 82%, #57453a 0%, #1c1611 50%, #080605 100%); }
+.demo .tg-5 { background: radial-gradient(120% 100% at 14% 20%, #45485c 0%, #14151b 50%, #050508 100%); }
+.demo .tg-6 { background: radial-gradient(120% 100% at 86% 88%, #3a4a5c 0%, #101519 50%, #040608 100%); }
+.demo .tg-7 { background: radial-gradient(120% 100% at 30% 10%, #4d4358 0%, #17141d 50%, #060509 100%); }
+.demo .tg-8 { background: radial-gradient(120% 100% at 70% 16%, #3f4a3d 0%, #131712 50%, #050705 100%); }
+
+/* preview responsive */
+@media (max-width: 900px) {
+  .demo { padding: 22px 16px 40px; font-size: 13.5px; }
+  .demo h2.d-title { font-size: 20px; }
+  .demo .grid-2, .demo .grid-3, .demo .nav-grid { grid-template-columns: minmax(0, 1fr); }
+  .demo .d-stat-row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .demo .gal { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .preview-bar { padding: 10px 14px; gap: 10px; }
+  .preview-bar-title { font-size: 12px; }
+  .preview-bar-tag { display: none; }
+  .demo table.d-table { font-size: 12.5px; }
+  .demo table.d-table th, .demo table.d-table td { padding-left: 6px; padding-right: 6px; }
+}
+@media (max-width: 560px) {
+  .demo .gal { grid-template-columns: minmax(0, 1fr); }
+  .demo .d-stat-row { grid-template-columns: minmax(0, 1fr); }
+  .demo .weather-temp { font-size: 42px; }
+  .demo .lightbox { padding: 18px; }
+}
+
+/* ============ entrance motion ============ */
+.appear {
+  opacity: 1;
+  animation-duration: 1.05s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-delay: var(--d, 0.08s);
+}
+.appear--scale { animation-name: in-scale; }
+.appear--soft  { animation-name: in-soft; }
+.appear--mask  { animation-name: in-mask; }
+.appear--pop   { animation-name: in-pop; }
+.appear--btn   { animation-name: in-btn; }
+.appear--side  { animation-name: in-side; }
+.appear--stat  { animation-name: in-stat; }
+.appear--card  { animation-name: in-card; }
+.lede.appear   { animation-duration: 1.25s; }
+
+.is-in {
+  animation: none;
+  opacity: 1;
+  transform: none;
+  clip-path: none;
+  filter: none;
+}
+.appear.is-in { animation: none !important; }
+
+@keyframes in-scale {
+  from { opacity: 0; transform: scale(0.84); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes in-soft {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes in-mask {
+  from { opacity: 0; transform: translateY(40%); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes in-pop {
+  0%   { opacity: 0; transform: scale(0.9); }
+  70%  { opacity: 1; transform: scale(1.03); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@keyframes in-btn {
+  from { opacity: 0; transform: translateY(18px) scale(0.94); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes in-side {
+  from { opacity: 0; transform: translateX(22px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes in-stat {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes in-card {
+  from { opacity: 0; transform: translateY(18px) scale(0.985); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes in-star {
+  0%   { opacity: 0; transform: scale(0.2) rotate(-50deg); }
+  65%  { opacity: 1; transform: scale(1.2) rotate(8deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+@keyframes in-em {
+  from { opacity: 0.35; filter: blur(4px); }
+  to   { opacity: 1; filter: blur(0); }
+}
+
+/* thumb gradients (placeholder artwork) */
+.tg-1 { background: radial-gradient(120% 100% at 12% 8%, #3c4a63 0%, #12161f 48%, #05060a 100%); }
+.tg-2 { background: radial-gradient(120% 100% at 88% 14%, #4a3a58 0%, #171220 48%, #06050a 100%); }
+.tg-3 { background: radial-gradient(120% 100% at 20% 88%, #2f4a44 0%, #0f1a18 50%, #040706 100%); }
+.tg-4 { background: radial-gradient(120% 100% at 80% 82%, #57453a 0%, #1c1611 50%, #080605 100%); }
+.tg-5 { background: radial-gradient(120% 100% at 14% 20%, #45485c 0%, #14151b 50%, #050508 100%); }
+.tg-6 { background: radial-gradient(120% 100% at 86% 88%, #3a4a5c 0%, #101519 50%, #040608 100%); }
+.tg-7 { background: radial-gradient(120% 100% at 30% 10%, #4d4358 0%, #17141d 50%, #060509 100%); }
+.tg-8 { background: radial-gradient(120% 100% at 70% 16%, #3f4a3d 0%, #131712 50%, #050705 100%); }
+
+/* ============ responsive ============ */
+
+/* >=1600 */
+@media (min-width: 1600px) {
+  :root {
+    --logo: 17px; --logo-mark: 24px; --nav: 15px; --nav-h: 44px;
+    --btn: 15px; --btn-h: 44px; --hero-btn-h: 48px; --h1: 56px;
+    --lede: 18px; --badge: 13.5px; --stat-size: 15px;
+    --header-y: 28px; --header-x: 64px; --stats-x: 96px; --stats-y: 44px;
+    --copy-max: 980px; --lede-max: 540px; --hero-gap: 34px;
+    --card-title: 16.5px; --card-body: 13.5px; --chip: 12px; --works-gap: 20px;
+  }
+  #site-nav a { padding: 0 20px; }
+  .badge { margin-bottom: 22px; }
+  .lede { margin-top: 18px; }
+  .hero-actions { margin-top: 26px; gap: 12px; }
+  .stat-icon { width: 22px; height: 22px; }
+  .stat-icon-wide { width: 45px; height: 24px; }
+  .work { padding: 18px 18px 17px; }
+  .filters button { height: 31px; font-size: 12px; padding: 0 14px; }
+}
+
+/* >=1920 */
+@media (min-width: 1920px) {
+  :root {
+    --logo: 18px; --logo-mark: 26px; --nav: 16px; --nav-h: 48px;
+    --btn: 16px; --btn-h: 48px; --hero-btn-h: 52px; --h1: 66px;
+    --lede: 20px; --badge: 14.5px; --stat-size: 16px;
+    --header-y: 32px; --header-x: 80px; --stats-x: 120px; --stats-y: 52px;
+    --copy-max: 1120px; --lede-max: 620px;
+    --card-title: 18px; --card-body: 14.5px; --chip: 12.5px; --works-gap: 22px;
+    --work-rows-tall: 2;
+  }
+  #site-nav { gap: 10px; }
+  #site-nav a { padding: 0 22px; }
+  .btn { padding: 0 22px; }
+  .badge { padding: 10px 15px; }
+  .stat-icon-wide { width: 48px; height: 26px; }
+  .works { max-width: 1560px; }
+}
+
+/* >=2560 */
+@media (min-width: 2560px) {
+  :root {
+    --h1: 76px; --lede: 22px; --header-x: 120px; --stats-x: 160px;
+    --copy-max: 1280px; --lede-max: 680px;
+    --card-title: 20px; --card-body: 15.5px;
+  }
+  .works { max-width: 2080px; }
+}
+
+/* 1280–1599 */
+@media (min-width: 1280px) and (max-width: 1599px) {
+  :root {
+    --h1: 48px; --lede: 16px; --header-x: 48px; --stats-x: 80px; --copy-max: 900px;
+  }
+}
+
+/* 901–1279 */
+@media (min-width: 901px) and (max-width: 1279px) {
+  :root {
+    --logo: 15px; --nav: 13px; --nav-h: 36px; --btn: 13px; --btn-h: 38px;
+    --hero-btn-h: 40px; --h1: 38px; --lede: 15px; --badge: 12px; --stat-size: 12.5px;
+    --header-y: 16px; --header-x: 28px; --stats-x: 36px; --stats-y: 28px;
+    --hero-gap: 22px; --copy-max: 760px; --lede-max: 440px;
+    --card-title: 13.5px; --card-body: 11.8px; --chip: 10.5px; --works-gap: 12px;
+  }
+  #site-nav a { padding: 0 14px; }
+  .badge { margin-bottom: 12px; }
+  .lede { margin-top: 12px; }
+  .hero-actions { margin-top: 16px; }
+}
+
+/* >=901: one frame, no scroll */
+@media (min-width: 901px) {
+  html, body { height: 100%; overflow: hidden; }
+  .page { height: 100vh; height: 100dvh; overflow: hidden; }
+  .works-grid { min-height: 0; }
+}
+
+/* >=901 short viewport */
+@media (min-width: 901px) and (max-height: 850px) {
+  :root { --header-y: 14px; --stats-y: 24px; --hero-gap: 18px; --h1: 36px; }
+  .badge { margin-bottom: 10px; }
+  .lede { margin-top: 10px; }
+  .hero-actions { margin-top: 13px; }
+  .works { padding-bottom: 12px; gap: 9px; }
+}
+@media (min-width: 901px) and (max-height: 720px) {
+  :root {
+    --h1: 30px; --lede: 14px; --hero-gap: 12px; --stats-y: 16px;
+    --nav-h: 30px; --btn-h: 34px; --hero-btn-h: 36px;
+  }
+  .badge { display: none; }
+  .works-label .ws-sub { display: none; }
+  .work-blurb { -webkit-line-clamp: 1; }
+  .work { padding: 12px 13px 11px; }
+}
+@media (min-width: 901px) and (max-height: 620px) {
+  :root { --h1: 26px; --hero-gap: 8px; --stats-y: 12px; }
+  .hero-actions { margin-top: 10px; }
+  .work-kicker { display: none; }
+}
+
+/* <=900 phone: scrolling restored */
+@media (max-width: 900px) {
+  :root {
+    --logo: 16px; --btn: 15px; --btn-h: 46px; --hero-btn-h: 48px; --h1: 32px;
+    --lede: 15.5px; --badge: 13px; --stat-size: 15px;
+    --header-y: 16px; --header-x: 18px; --stats-x: 20px; --stats-y: 28px;
+    --hero-gap: 32px; --copy-max: 100%; --lede-max: 100%;
+    --card-title: 15.5px; --card-body: 13px; --chip: 11.5px; --works-gap: 12px;
+  }
+
+  html, body { height: auto; overflow-y: auto; overflow-x: hidden; }
+  .page { height: auto; min-height: 100dvh; overflow: visible; }
+
+  .header {
+    grid-template-columns: 1fr auto auto;
+    gap: 8px;
+    padding-top: max(var(--header-y), env(safe-area-inset-top));
+    padding-left: max(var(--header-x), env(safe-area-inset-left));
+    padding-right: max(var(--header-x), env(safe-area-inset-right));
+    padding-bottom: 10px;
+  }
+  .logo, .header-cta, .burger { z-index: 80; position: relative; }
+
+  .burger { display: grid; }
+
+  .menu-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: rgba(8, 8, 8, 0.42);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
+  }
+  body.menu-open .menu-backdrop {
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+  }
+
+  #site-nav {
+    position: fixed;
+    inset: 0;
+    z-index: 45;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 96px 22px 32px;
+    padding-top: max(96px, calc(env(safe-area-inset-top) + 88px));
+    background: transparent;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.28s ease, visibility 0.28s ease;
+  }
+  body.menu-open #site-nav { opacity: 1; visibility: visible; }
+  #site-nav a {
+    width: 100%;
+    height: 56px;
+    font-size: 19px;
+    border-radius: 10px;
+  }
+
+  .hero {
+    padding: 20px 20px 0;
+    align-items: flex-end;
+  }
+  .hero-copy { max-width: 100%; }
+  .lede { max-width: 100%; }
+
+  .works {
+    padding: 26px 18px 22px;
+    max-width: 100%;
+    gap: 14px;
+  }
+  .works-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .works-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    grid-auto-rows: auto;
+    gap: 12px;
+  }
+  .work { min-height: 232px; padding: 18px 17px 16px; }
+
+  .modal { padding: 16px; }
+  .modal-card { padding: 22px 20px 24px; max-height: 88vh; }
+  .modal-hero { margin: -22px -20px 18px; height: 124px; }
+  .modal-title { font-size: 22px; }
+  .modal-meta { grid-template-columns: minmax(0, 1fr); }
+  .modal-actions .btn { flex: 1 1 auto; }
+
+  .stats {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  .stat { white-space: normal; }
+}
+
+/* <=560 */
+@media (max-width: 560px) {
+  :root { --h1: 29px; --lede: 15px; --header-x: 16px; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { width: 100%; }
+  .filters { width: 100%; }
+  .filters button { flex: 0 0 auto; }
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+  .appear, .hero-photo, .hero h1 em, .badge-star {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+    filter: none;
+  }
+}
+</style>
+</head>
+<body style="background:#000;color:#fff" data-page-node-id="qN4qeVRgmpMsaHabH88z5Y">
+
+<div class="grain" aria-hidden="true" data-page-node-id="TGMrnOeiIO6zbwmfUPNbz1"></div>
+<div class="hero-photo" aria-hidden="true" data-page-node-id="46PQ4gWtnCF93XWuXVW1R9"></div>
+
+<div class="page" data-page-node-id="ARsiKpT3or4gtHC9GMnovX">
+
+  <div class="menu-backdrop" aria-hidden="true" data-page-node-id="aQQhPJQ7QjzHw9UVAte9Sh"></div>
+
+  <header class="header" data-page-node-id="dLsApLh7LbapbmQfmcCQRs">
+    <a class="logo appear appear--scale" href="#top" aria-label="作品集首页" style="--d:.08s" data-page-node-id="wsZyUficRwMfDMe45mgx3h">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" data-page-node-id="qzCS8m7W5lOuXnC6bjqZtP">
+        <g transform="rotate(-30 12 12)" data-page-node-id="tdwVHrjCOby2rhPBLvBXnE">
+          <circle cx="7.3" cy="3.2" r="1.45" data-page-node-id="xkudQdzPfREiH6SpA0cSLF"/>
+          <rect x="5.5" y="4.7" width="3.6" height="14.6" rx="1.8" data-page-node-id="919Vz3DfVjM118XQhYBQjM"/>
+          <rect x="14.9" y="4.7" width="3.6" height="14.6" rx="1.8" data-page-node-id="bjGPSsj69d5mpMS578JHid"/>
+          <circle cx="16.7" cy="20.8" r="1.45" data-page-node-id="B9xlhFH9OhEoAD0JYNSSQd"/>
+        </g>
+      </svg>
+      <span class="logo-word" data-page-node-id="harTlKCWXkLNf4DvtluUpb">我的<span class="logo-suffix" data-page-node-id="wphSCRMc1q18Ro9nGTC58w">作品集</span></span>
+    </a>
+
+    <nav id="site-nav" aria-label="主导航" data-page-node-id="2jEFUU99jRYFR9phJhRHvI">
+      <a class="appear appear--scale" href="#works" style="--d:.16s" data-page-node-id="3DhxelmAJ2g3vGR4jBVCaD">作品</a>
+      <a class="appear appear--soft" href="#about" style="--d:.28s" data-page-node-id="c63sXc4tSGYAa2YpZxSHZ9">关于</a>
+      <a class="appear appear--scale" href="#resume" style="--d:.40s" data-page-node-id="M7ICyblAgzJvbiUklagGUf">简历</a>
+      <a class="appear appear--soft" href="#contact" style="--d:.52s" data-page-node-id="IGTHTatAZTRi9I3Kky0nQa">联系</a>
+    </nav>
+
+    <a class="btn btn-solid header-cta appear appear--scale" href="#resume" style="--d:.34s" data-page-node-id="dpzQIFwVWCaMhnvohL2EDV">简历</a>
+
+    <button class="burger appear appear--scale" type="button" style="--d:.34s" aria-controls="site-nav" aria-expanded="false" aria-label="打开菜单" data-page-node-id="giYBxGPA0Vo1FyUODJzWfU">
+      <span data-page-node-id="dIp8FJOCyGbcvnWkBcnAj2"></span>
+      <span data-page-node-id="CwXoh3dyGhMhn54bURDv14"></span>
+      <span data-page-node-id="Qn0cNBPofH0XpsgNaL3BAx"></span>
+    </button>
+  </header>
+
+  <main class="main" id="top" data-page-node-id="SaA47pKJhT5iLrmr0MepuP">
+
+    <section class="hero" data-page-node-id="HZECF3uBPnnd2DNHdlkbvO">
+      <div class="hero-copy" data-page-node-id="kJZopt09r4tuPrVl4sQI2x">
+
+        <span class="badge appear appear--pop" style="--d:.22s" data-page-node-id="Uhjyr9QuuUc4eCwf9diiGB">
+          <svg class="badge-star" width="18" height="20" viewBox="0 0 24 24" fill="#ffffff" aria-hidden="true" focusable="false" data-page-node-id="d1ZjAwB0dntXU4MZiDp3kL">
+            <path d="M12 2.6C12.55 2.6 12.88 3.15 13.08 4.7c.62 4.7 1.52 5.6 6.22 6.22 1.55.2 2.1.53 2.1 1.08s-.55.88-2.1 1.08c-4.7.62-5.6 1.52-6.22 6.22-.2 1.55-.53 2.1-1.08 2.1s-.88-.55-1.08-2.1c-.62-4.7-1.52-5.6-6.22-6.22C3.15 12.88 2.6 12.55 2.6 12s.55-.88 2.1-1.08c4.7-.62 5.6-1.52 6.22-6.22C11.12 3.15 11.45 2.6 12 2.6Z" data-page-node-id="NoFbQbYILfDrD9BWT37xnf"/>
+          </svg>
+          <span class="badge-text">在校学生 · 寻找实习机会</span>
+        </span>
+
+        <h1 class="hero-title" data-page-node-id="6ZU6aPnUtkgnWdKyYfyiGh">
+          <span class="headline-line appear appear--mask" style="--d:.42s" data-page-node-id="wTWXQ0eFesrSrfGSLKJhqb">I build <em class="em-serif" data-page-node-id="udDdwYlTEervetAhdaV5vG">interfaces</em> that</span>
+          <span class="headline-line appear appear--mask" style="--d:.62s" data-page-node-id="ex60nDM6kFfku2bNexBEVs">feel effortless.</span>
+        </h1>
+
+        <p class="lede appear appear--soft" style="--d:.82s" data-page-node-id="Rwme9pXThaP6dqMFKIU3hV">八个课程与个人项目，涵盖网页开发、数据分析与校园工具。点击任意卡片即可查看项目详情。</p>
+
+        <div class="hero-actions" data-page-node-id="vb4FAk1ExII7flJWujIagt">
+          <a class="btn btn-solid appear appear--btn" href="#works" style="--d:.96s" data-page-node-id="fbfh7mGvxi8NF53HCOUr6W">查看作品</a>
+          <a class="btn btn-ghost appear appear--side" href="#contact" style="--d:1.10s" data-page-node-id="wxiPHyrsMiIwfajSgIFK64">联系我</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="works" id="works" aria-labelledby="works-label" data-page-node-id="OzN0TcUFMNGjgDQSXFvAZu">
+
+      <div class="works-head appear appear--soft" style="--d:.86s" data-page-node-id="n74be4YpF5nUHGrjMfI083">
+        <span class="works-label" id="works-label" data-page-node-id="avDgV6kgK1oLscnJOB5rEo">
+          <span class="works-label-text">精选项目</span> <span class="count" id="works-count" data-page-node-id="pXKYFjjnqWAfVuLNBJaiHy">(0)</span>
+        </span>
+        <div class="filters" id="filters" role="group" aria-label="按技术分类筛选项目" data-page-node-id="yvg6kjkDvzLvKFDFdcuVWZ"></div>
+      </div>
+
+      <div class="works-grid" id="works-grid" data-page-node-id="2JuHMqOCHwMjoJX2hvLug4"></div>
+      <div class="works-empty" id="works-empty" data-page-node-id="9SpkqfFR820Iy7KtceE0C1">该分类下暂时还没有项目。</div>
+
+    </section>
+
+  </main>
+
+  <footer class="stats" data-page-node-id="mdTV0FwKaVCCyUaeeumz2f">
+
+    <div class="stat appear appear--stat" style="--d:1.12s" data-page-node-id="cFsHap8bOeYIvcGs3y0YG6">
+      <svg class="stat-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" data-page-node-id="Ruf6ubQbziVzyA7ym3Pzbz">
+        <defs data-page-node-id="SHulVPmhxx7JFZSQ8dVwLx">
+          <linearGradient id="vp-g1" x1="3" y1="2" x2="14" y2="22" gradientUnits="userSpaceOnUse" data-page-node-id="S8hZ8NwwtaU6KTBRMvKcA6">
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0.38" data-page-node-id="8Are3a5gS7UKz1emJ4tRmO"/>
+            <stop offset="1" stop-color="#3a3a3a" stop-opacity="0.62" data-page-node-id="VE9BGHNrr31oFzBZ6SETwS"/>
+          </linearGradient>
+          <linearGradient id="vp-g2" x1="3" y1="2" x2="14" y2="22" gradientUnits="userSpaceOnUse" data-page-node-id="3hfdplDQ0UWHaLcXyxFh0Y">
+            <stop offset="0" stop-color="#3a3a3a" stop-opacity="0.38" data-page-node-id="m6eP0bHqjzSg3uCXLk1Aar"/>
+            <stop offset="1" stop-color="#ffffff" stop-opacity="0.62" data-page-node-id="EeQO055wl1wCF6FmJDKh8G"/>
+          </linearGradient>
+        </defs>
+        <rect x="3.4" y="2.6" width="7.2" height="18.8" rx="3.6" fill="url(#vp-g1)" data-page-node-id="0nkL0UlZSMOhr9VGOYSskX"/>
+        <rect x="13.4" y="2.6" width="7.2" height="18.8" rx="3.6" fill="url(#vp-g2)" data-page-node-id="gDZaOFtl58KpdDGGJR7n59"/>
+        <rect x="9.2" y="10.9" width="5.6" height="2.2" rx="1.1" fill="#4a4a4a" data-page-node-id="nUyeSlIgOcgCR07RRd4jyg"/>
+      </svg>
+      <span id="stat-skills" data-page-node-id="AMP6G0KvUvFsuB0Lv4C44t">— 项技术</span>
+    </div>
+
+    <div class="stat appear appear--stat" style="--d:1.28s" data-page-node-id="KAYqd5bUuCHtoDQloMijAk">
+      <svg class="stat-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false" data-page-node-id="TCbKpA7iCybjGpOAEVTmBL">
+        <rect x="2.4" y="2.4" width="19.2" height="19.2" rx="6.2" fill="#ffffff" data-page-node-id="QZiGFhQckxzU27nKXA6kLO"/>
+        <g fill="none" stroke="#111" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" data-page-node-id="0xtv4Y3CWqn65dMWskhFQn">
+          <path d="M12 7.1v7.4" data-page-node-id="gGuywB1l9ipSzOASlrA33f"/>
+          <path d="M8.15 12.35L12 16.2l3.85-3.85" data-page-node-id="8Y0CW6uXCFpz14GfJx4KAn"/>
+        </g>
+      </svg>
+      <span id="stat-projects" data-page-node-id="2UzEHOqAwPoOjLdapfF1cZ">— 个项目</span>
+    </div>
+
+    <div class="stat appear appear--stat" style="--d:1.44s" data-page-node-id="t1BT05FpxAniB585Jw8Ilu">
+      <svg class="stat-icon-wide" viewBox="0 0 40 22" aria-hidden="true" focusable="false" data-page-node-id="T5Izq2R5BzHskzfcw8eaaJ">
+        <circle cx="10.2" cy="11" r="9.2" fill="#2b2b2b" data-page-node-id="X457l9sdod8kNq2N5050jI"/>
+        <path d="M3.4 5.9 L5.8 2.1 L7.9 6.4 Z" fill="#2b2b2b" data-page-node-id="G0ZQrgYS5MdGMsAYrXifbR"/>
+        <path d="M17 5.9 L14.6 2.1 L12.5 6.4 Z" fill="#2b2b2b" data-page-node-id="7J9SlEEnmeAApc5C1WKZnx"/>
+        <ellipse cx="10.2" cy="12.1" rx="4.15" ry="3.7" fill="#f4f4f4" data-page-node-id="9XUujXaIBd7qpS063I7n3i"/>
+        <circle cx="8.6" cy="11.5" r="0.7" fill="#1a1a1a" data-page-node-id="TJseU9LGIR2LVXKHZ6ukR2"/>
+        <circle cx="11.8" cy="11.5" r="0.7" fill="#1a1a1a" data-page-node-id="TvxshBQbqLBJ3L5yBP4goA"/>
+
+        <circle cx="20.2" cy="11" r="9.2" fill="#ffffff" data-page-node-id="kRK9tBvFXayS1IskolaFyn"/>
+        <circle cx="17.4" cy="9.6" r="1.7" fill="#111111" data-page-node-id="XW0S9UjWHH7ZjiYTkJWhrM"/>
+        <circle cx="23" cy="9.6" r="1.7" fill="#111111" data-page-node-id="glccIr7NSsT2Fdh1e93DZL"/>
+        <ellipse cx="20.2" cy="13.7" rx="1.5" ry="1.1" fill="#111111" data-page-node-id="v3YfWbAyVBABFg1wqcF3iq"/>
+        <path d="M17.2 16.3 Q20.2 18.7 23.2 16.3" fill="none" stroke="#111111" stroke-width="1.2" stroke-linecap="round" data-page-node-id="4hpi8pnipr3bI5mpZWZDBP"/>
+
+        <circle cx="30.2" cy="11" r="9.2" fill="#f26b1d" data-page-node-id="WdP8PVMD9UN3rGdE1CCFeU"/>
+        <text x="30.2" y="15.1" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="12.5" fill="#ffffff" data-page-node-id="zGEoYRBnTHEpxXUv71pUAG">e</text>
+      </svg>
+      <span id="stat-teams" data-page-node-id="UE3X4eUh9iBWIiRNx0bCqV">— 年</span>
+    </div>
+
+  </footer>
+
+</div>
+
+<!-- ============ modal ============ -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true" data-page-node-id="6g57kdDii4x5aZ2OWwWxv4">
+  <button class="modal-scrim" type="button" tabindex="-1" aria-label="关闭项目详情" data-close data-page-node-id="v7xVVGYzwG3PupeWaRkZPC"></button>
+  <div class="modal-card" data-page-node-id="V3XRqO6GOFaolUnAtzaza2">
+    <button class="modal-close" type="button" aria-label="关闭项目详情" data-close data-page-node-id="7x71ppgirKEArAJUo0he8i">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true" data-page-node-id="d4TuHT7VeCjgVp9I25FZmn">
+        <path d="M1 1l12 12M13 1L1 13" data-page-node-id="hLH3RYq0V7l3nLAS6RCXxg"/>
+      </svg>
+    </button>
+    <div id="modal-content" data-page-node-id="hwDHxGgZFkJxbda1lQlZaU"></div>
+  </div>
+</div>
+
+<!-- ============ demo preview overlay ============ -->
+<div class="preview" id="preview" role="dialog" aria-modal="true" aria-label="项目在线预览" aria-hidden="true">
+  <div class="preview-bar">
+    <span class="preview-dot" aria-hidden="true"></span>
+    <span class="preview-bar-title">
+      <span id="preview-name">项目预览</span>
+      <span class="preview-bar-tag" id="preview-tag"></span>
+    </span>
+    <span class="preview-bar-spacer"></span>
+    <button class="btn btn-solid" type="button" id="preview-back">返回作品集</button>
+  </div>
+  <div class="preview-stage" id="preview-stage"></div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* =========================================================
+     EDIT HERE — your projects.
+     Replace title / blurb / role / year / stack / problem /
+     approach / highlights / links with your real content.
+     `tags` drives both the chips and the filter buttons.
+     Set `url` to a live link, or leave "" to show a disabled
+     placeholder button.
+     ========================================================= */
+  var PROJECTS = [
+    {
+      kicker: "校园 · 网页应用",
+      title: "校园社团活动<em>管理</em>网页",
+      blurb: "实现社团信息发布、活动报名与人员信息管理的简易网页平台，完成表单提交与数据展示功能。",
+      tags: ["HTML", "CSS", "JavaScript"],
+      thumb: "tg-1",
+      role: "独立开发",
+      year: "2024",
+      stack: "HTML · CSS · JavaScript",
+      url: "",
+      problem: "社团通知和活动报名分散在群聊与纸质表格里，没有人能在一个地方看清近期有什么活动、谁已经报了名。",
+      approach: "我把平台做成单页面结构，分为社团信息、活动报名、人员管理三个视图。表单在前端完成校验，提交后的数据直接渲染到下方列表，操作反馈即时可见。",
+      highlights: [
+        "信息发布、报名与人员管理集中在一个平台内",
+        "前端表单校验，错误提示就近显示在对应字段旁",
+        "提交的数据无需刷新即可即时渲染到页面"
+      ]
+    },
+    {
+      kicker: "数据 · 分析",
+      title: "学生成绩<em>统计分析</em>小程序",
+      blurb: "对班级成绩进行录入、计算平均分、排序，可视化展示成绩分布，快速完成统计工作。",
+      tags: ["Python", "数据可视化"],
+      thumb: "tg-2",
+      role: "独立开发",
+      year: "2024",
+      stack: "Python · Matplotlib",
+      url: "",
+      problem: "手工统计班级平均分和排名既慢又容易出错，而且一串孤立的数字看不出整个班级的成绩分布情况。",
+      approach: "我用 Python 写了一个脚本，录入成绩后自动计算平均分、生成排名，并把成绩分布绘制成图表，让数值和分布形态同时可见。",
+      highlights: [
+        "自动计算平均分、排名与及格率",
+        "成绩分布图让分数区间一眼可见",
+        "一次运行即可处理整个班级的数据"
+      ]
+    },
+    {
+      kicker: "个人站点",
+      title: "个人博客<em>静态</em>页面",
+      blurb: "深色简约风格博客，包含文章列表、文章详情页面，适配移动端浏览。",
+      tags: ["HTML", "CSS", "响应式布局"],
+      thumb: "tg-3",
+      role: "独立开发",
+      year: "2023",
+      stack: "HTML · CSS · 媒体查询",
+      url: "",
+      problem: "多数博客模板以桌面端阅读为默认前提，长文章放到手机屏幕上就变得局促，甚至出现横向滚动。",
+      approach: "我优先为长文阅读设计了一套深色低对比主题，再采用移动优先的思路搭建布局，用流式字号和单栏正文保证任意宽度下的阅读体验。",
+      highlights: [
+        "深色低眩光主题，适合长时间阅读",
+        "流式字号让正文行宽在任意屏幕都保持舒适",
+        "文章列表与详情页共用同一套一致的布局"
+      ]
+    },
+    {
+      kicker: "后端 · 管理",
+      title: "图书管理系统",
+      blurb: "基础后端管理页面，实现图书录入、借阅登记、读者信息管理。",
+      tags: ["HTML", "CSS", "数据库"],
+      thumb: "tg-4",
+      role: "独立开发",
+      year: "2023",
+      stack: "HTML · CSS · SQL",
+      url: "",
+      problem: "靠纸质记录追踪图书借出情况和借阅人，连「当前有哪些书在借」这样简单的问题都很难快速回答。",
+      approach: "我把图书、读者、借阅记录建成相互关联的数据表，再编写管理页面读写这些记录，让馆藏状态始终保持最新。",
+      highlights: [
+        "图书、读者与借阅记录以关联表结构存储",
+        "可按读者或按图书分别追溯借阅历史",
+        "管理页面支持录入、修改与查询操作"
+      ]
+    },
+    {
+      kicker: "交互表单",
+      title: "在线问卷<em>收集</em>页面",
+      blurb: "交互式问卷表单，收集用户填写信息，表单有基础校验提示。",
+      tags: ["JavaScript", "表单", "CSS"],
+      thumb: "tg-5",
+      role: "独立开发",
+      year: "2023",
+      stack: "JavaScript · HTML 表单 · CSS",
+      url: "",
+      problem: "问卷表单常常静默失败——用户提交后才发现某一项填写有误，却不知道具体问题出在哪里。",
+      approach: "我给每个字段加上随输入即时触发的校验，用户在填写过程中就能看到提示，而不是等到最后收到一堆错误信息。",
+      highlights: [
+        "逐字段校验，提示就近显示而非汇总报错",
+        "针对必填、长度、格式三类规则分别检查",
+        "从第一个字段到提交全程可用键盘完成"
+      ]
+    },
+    {
+      kicker: "接口 · 网页应用",
+      title: "简易<em>天气</em>查询网页",
+      blurb: "输入城市名称查询实时天气，展示温度、天气状况，搭配动态背景。",
+      tags: ["JavaScript", "API"],
+      thumb: "tg-6",
+      role: "独立开发",
+      year: "2023",
+      stack: "JavaScript · Fetch API · JSON",
+      url: "",
+      problem: "单独一个温度数字信息量很低，而多数简易天气页面只把结果当成一段文字，一眼看过去读不出什么。",
+      approach: "我根据输入的城市获取实时天气，并让背景渐变色随天气状态切换——晴天、阴天、雨天各不相同，这样不用等读完数字也能先感受到天气。",
+      highlights: [
+        "实时城市查询，对无效城市名做了容错处理",
+        "背景随晴天、阴天、雨天切换不同色调",
+        "加载与错误状态都有提示，不会停在空白页"
+      ]
+    },
+    {
+      kicker: "画廊",
+      title: "图片画廊<em>展示</em>网站",
+      blurb: "图片作品网格画廊，支持点击放大预览图片，添加过渡动画效果。",
+      tags: ["CSS", "动画", "HTML"],
+      thumb: "tg-7",
+      role: "独立开发",
+      year: "2023",
+      stack: "CSS Grid · CSS 过渡 · JavaScript",
+      url: "",
+      problem: "不少画廊在缩略图和放大视图之间是硬切换，缺少过渡，用户很难把两边的同一张图对应起来。",
+      approach: "我用 CSS Grid 排布缩略图，并为放大过程添加过渡动画，让图片看起来是从原来的位置移动过去，而不是被替换掉。",
+      highlights: [
+        "响应式网格，跨不同断点都能自然重排",
+        "缩略图到放大预览带有平滑过渡动画",
+        "点击放大，点击空白处或按 Esc 关闭"
+      ]
+    },
+    {
+      kicker: "校园 · 信息",
+      title: "校园导航信息页面",
+      blurb: "整合校园地点、校园通知、校内服务入口，方便学生快速查找信息。",
+      tags: ["响应式布局", "HTML", "CSS"],
+      thumb: "tg-8",
+      role: "独立开发",
+      year: "2023",
+      stack: "HTML · CSS · 响应式布局",
+      url: "",
+      problem: "校园信息散落在公告栏、多个院系页面和群聊里，想查一个地址或一个截止时间往往要翻三个地方。",
+      approach: "我把地点、通知和服务入口整合到一个结构清晰的页面中，并按分区组织内容；布局做成响应式的，单手拿着手机走在校园里也能用。",
+      highlights: [
+        "地点、通知与服务入口集中在一个页面",
+        "分区式布局让每类信息都能快速扫读",
+        "从手机到桌面一套响应式布局，无需单独做移动端"
+      ]
+    }
+  ];
+
+  /* =========================================================
+     EDIT HERE — contact + stats.
+     ========================================================= */
+  var WHOAMI = {
+    /* Replace with your real links. Empty string hides nothing, it just shows a dead button. */
+    email: "your.email@example.com",
+    github: "https://github.com/your-handle",
+    linkedin: "https://linkedin.com/in/your-handle",
+    resume: "" /* e.g. "resume.pdf" */
+  };
+
+  var STATS = {
+    skills: "10 项技术",
+    projects: "8 个项目",
+    teams: "2023 — 2024 年"
+  };
+
+  /* ---------- tiny helpers ---------- */
+  function el(tag, cls, html) {
+    var n = document.createElement(tag);
+    if (cls) { n.className = cls; }
+    if (html != null) { n.innerHTML = html; }
+    return n;
+  }
+  function esc(s) {
+    return String(s)
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+
+  /* ---------- stats ---------- */
+  document.getElementById("stat-skills").textContent = STATS.skills;
+  document.getElementById("stat-projects").textContent = STATS.projects;
+  document.getElementById("stat-teams").textContent = STATS.teams;
+
+  /* ---------- render cards ---------- */
+  var grid = document.getElementById("works-grid");
+  var filtersBox = document.getElementById("filters");
+  var countEl = document.getElementById("works-count");
+  var emptyEl = document.getElementById("works-empty");
+  var modal = document.getElementById("modal");
+  var modalContent = document.getElementById("modal-content");
+  var cardEls = [];
+
+  /* The "show everything" filter label lives in one place so that renaming it
+     can never silently break the comparison inside applyFilter(). */
+  var ALL = "全部";
+  var categories = [ALL];
+  PROJECTS.forEach(function (p) {
+    p.tags.forEach(function (t) {
+      if (categories.indexOf(t) === -1) { categories.push(t); }
+    });
+  });
+
+  PROJECTS.forEach(function (p, i) {
+    var card = el("button", "work appear appear--card");
+    card.type = "button";
+    card.setAttribute("data-index", String(i));
+    card.setAttribute("data-tags", p.tags.join("|"));
+    card.style.setProperty("--d", (0.9 + i * 0.055).toFixed(3) + "s");
+    card.setAttribute("aria-label", "查看项目详情：" + p.title.replace(/<[^>]+>/g, ""));
+
+    card.innerHTML =
+      '<span class="work-thumb ' + esc(p.thumb) + '" aria-hidden="true"></span>' +
+      '<span class="work-thumb-tint" aria-hidden="true"></span>' +
+      '<span class="work-index" aria-hidden="true">' + pad(i + 1) + '</span>' +
+      '<span class="work-body">' +
+        '<span class="work-kicker">' + esc(p.kicker) + '</span>' +
+        '<span class="work-title">' + p.title + '</span>' +
+        '<span class="work-blurb">' + esc(p.blurb) + '</span>' +
+        '<span class="work-tags">' +
+          p.tags.map(function (t) { return '<span class="work-tag">' + esc(t) + '</span>'; }).join("") +
+        '</span>' +
+      '</span>';
+
+    card.addEventListener("click", function () { openModal(i); });
+    grid.appendChild(card);
+    cardEls.push(card);
+  });
+
+  categories.forEach(function (c, i) {
+    var b = el("button", null, esc(c));
+    b.type = "button";
+    b.setAttribute("aria-pressed", i === 0 ? "true" : "false");
+    b.setAttribute("data-cat", c);
+    b.addEventListener("click", function () { applyFilter(c, b); });
+    filtersBox.appendChild(b);
+  });
+
+  function applyFilter(cat, btn) {
+    Array.prototype.forEach.call(filtersBox.children, function (b) {
+      b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+    });
+    var shown = 0;
+    cardEls.forEach(function (card) {
+      var tags = card.getAttribute("data-tags").split("|");
+      var ok = cat === ALL || tags.indexOf(cat) !== -1;
+      card.classList.toggle("is-hidden", !ok);
+      if (ok) { shown++; }
+      /* cards may have been mid-animation; make sure visible ones are settled */
+      card.classList.add("is-in");
+    });
+    countEl.textContent = "(" + shown + ")";
+    emptyEl.classList.toggle("is-on", shown === 0);
+  }
+
+  countEl.textContent = "(" + PROJECTS.length + ")";
+
+  /* ---------- modal ---------- */
+  var lastFocus = null;
+
+  function linkBtn(label, href, solid) {
+    if (!href) {
+      return '<button class="btn ' + (solid ? "btn-solid" : "btn-ghost") +
+             '" type="button" disabled style="opacity:.45;cursor:not-allowed" title="请在 PROJECTS 配置中填入链接">' +
+             esc(label) + '</button>';
+    }
+    var ext = /^https?:/i.test(href) ? ' target="_blank" rel="noopener noreferrer"' : "";
+    return '<a class="btn ' + (solid ? "btn-solid" : "btn-ghost") + '" href="' + esc(href) + '"' + ext + '>' +
+           esc(label) + '</a>';
+  }
+
+  function openModal(i) {
+    var p = PROJECTS[i];
+    lastFocus = document.activeElement;
+
+    modalContent.innerHTML =
+      '<div class="modal-hero">' +
+        '<span class="work-thumb ' + esc(p.thumb) + '" style="opacity:.85" aria-hidden="true"></span>' +
+        '<span class="work-thumb-tint" aria-hidden="true"></span>' +
+      '</div>' +
+      '<div class="modal-kicker">' + esc(p.kicker) + '</div>' +
+      '<h2 class="modal-title" id="modal-title">' + p.title + '</h2>' +
+      '<p class="modal-lede">' + esc(p.blurb) + '</p>' +
+      '<dl class="modal-meta">' +
+        '<div><dt>我的角色</dt><dd>' + esc(p.role) + '</dd></div>' +
+        '<div><dt>年份</dt><dd>' + esc(p.year) + '</dd></div>' +
+        '<div><dt>技术栈</dt><dd>' + esc(p.stack) + '</dd></div>' +
+      '</dl>' +
+      '<div class="modal-section"><h3>要解决的问题</h3><p>' + esc(p.problem) + '</p></div>' +
+      '<div class="modal-section"><h3>实现思路</h3><p>' + esc(p.approach) + '</p></div>' +
+      '<div class="modal-section"><h3>完成情况</h3><ul class="modal-list">' +
+        p.highlights.map(function (h) { return "<li>" + esc(h) + "</li>"; }).join("") +
+      '</ul></div>' +
+      '<div class="modal-section"><h3>技术标签</h3><div class="work-tags">' +
+        p.tags.map(function (t) { return '<span class="work-tag">' + esc(t) + '</span>'; }).join("") +
+      '</div></div>' +
+      '<div class="modal-actions">' +
+        '<button class="btn btn-solid" type="button" data-preview="' + i + '">在线预览</button>' +
+        linkBtn("邮件咨询这个项目", WHOAMI.email ? "mailto:" + WHOAMI.email : "", false) +
+      '</div>';
+
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    var closeBtn = modal.querySelector(".modal-close");
+    if (closeBtn) { closeBtn.focus(); }
+  }
+
+  function closeModal() {
+    if (!modal.classList.contains("is-open")) { return; }
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (lastFocus && lastFocus.focus) { lastFocus.focus(); }
+  }
+
+  Array.prototype.forEach.call(modal.querySelectorAll("[data-close]"), function (b) {
+    b.addEventListener("click", closeModal);
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" || e.key === "Esc") {
+      if (modal.classList.contains("is-open")) { closeModal(); }
+      closeMenu();
+    }
+  });
+
+  /* simple focus trap inside the modal */
+  modal.addEventListener("keydown", function (e) {
+    if (e.key !== "Tab" || !modal.classList.contains("is-open")) { return; }
+    var focusables = modal.querySelectorAll('a[href], button:not([disabled])');
+    if (!focusables.length) { return; }
+    var first = focusables[0];
+    var last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault(); last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault(); first.focus();
+    }
+  });
+
+  /* ---------- entrance motion ---------- */
+  var heroPhoto = document.querySelector(".hero-photo");
+
+  function markIn(el2) { el2.classList.add("is-in"); }
+  function bindEnd(el2) {
+    el2.addEventListener("animationend", function () { markIn(el2); }, { once: true });
+  }
+  function allAnimated() {
+    return document.querySelectorAll(".appear, .hero-photo");
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll(".appear"), bindEnd);
+
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      var running = false;
+      Array.prototype.forEach.call(allAnimated(), function (e2) {
+        if (running || typeof e2.getAnimations !== "function") { return; }
+        var anims = e2.getAnimations();
+        for (var i = 0; i < anims.length; i++) {
+          var s = anims[i].playState;
+          if (s === "running" || s === "finished") { running = true; break; }
+        }
+      });
+      if (running) { return; }
+      Array.prototype.forEach.call(allAnimated(), markIn);
+    });
+  });
+
+  /* ---------- mobile menu ---------- */
+  var burger = document.querySelector(".burger");
+  var nav = document.getElementById("site-nav");
+
+  function setMenu(open) {
+    document.body.classList.toggle("menu-open", open);
+    if (burger) {
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+      burger.setAttribute("aria-label", open ? "关闭菜单" : "打开菜单");
+    }
+  }
+  function closeMenu() { setMenu(false); }
+
+  if (burger) {
+    burger.addEventListener("click", function (e) {
+      e.preventDefault();
+      setMenu(!document.body.classList.contains("menu-open"));
+    });
+  }
+
+  var backdrop = document.querySelector(".menu-backdrop");
+  if (backdrop) { backdrop.addEventListener("click", closeMenu); }
+
+  if (nav) {
+    Array.prototype.forEach.call(nav.querySelectorAll("a"), function (a) {
+      a.addEventListener("click", closeMenu);
+    });
+  }
+
+  var mq = window.matchMedia("(min-width: 901px)");
+  var onDesktop = function (e) { if (e.matches) { closeMenu(); } };
+  if (mq.addEventListener) { mq.addEventListener("change", onDesktop); }
+  else if (mq.addListener) { mq.addListener(onDesktop); }
+
+  /* ============================================================
+     DEMOS — one small self-contained demo per project.
+     Each entry owns its markup and an optional init(el) hook that
+     binds behaviour. Everything is plain HTML/CSS/JS; no libraries
+     and no external files, so the portfolio stays a single page.
+     ============================================================ */
+  var DEMOS = {};
+
+  /* 1 — 校园社团活动管理网页 */
+  DEMOS[0] = {
+    tag: "HTML / CSS / JavaScript",
+    html:
+      '<div class="wrap">' +
+        '<span class="d-eyebrow">社团活动管理</span>' +
+        '<h2 class="d-title">校园社团活动管理</h2>' +
+        '<p class="d-sub">发布活动、在线报名、查看成员名单 —— 提交后数据立即显示在下方。</p>' +
+        '<div class="card">' +
+          '<h3>发布新活动</h3>' +
+          '<div class="grid-2">' +
+            '<div class="field"><label class="d-label" for="dm1-name">活动名称</label>' +
+              '<input type="text" id="dm1-name" placeholder="例如：周末读书分享会"></div>' +
+            '<div class="field"><label class="d-label" for="dm1-date">活动日期</label>' +
+              '<input type="date" id="dm1-date"></div>' +
+          '</div>' +
+          '<div class="field"><label class="d-label" for="dm1-desc">活动简介</label>' +
+            '<input type="text" id="dm1-desc" placeholder="一句话说明活动内容"></div>' +
+          '<div class="d-actions"><button class="d-btn" type="button" id="dm1-add">发布活动</button></div>' +
+          '<div class="d-msg" id="dm1-msg"></div>' +
+        '</div>' +
+        '<div class="card">' +
+          '<div class="row-between" style="margin-bottom:12px">' +
+            '<h3 style="margin:0">活动列表</h3>' +
+            '<span class="d-tag" id="dm1-count">共 2 个活动</span>' +
+          '</div>' +
+          '<table class="d-table">' +
+            '<thead><tr><th>活动名称</th><th>日期</th><th>已报名</th></tr></thead>' +
+            '<tbody id="dm1-body"></tbody>' +
+          '</table>' +
+        '</div>' +
+      '</div>',
+    init: function (root) {
+      var data = [
+        { name: "周末读书分享会", date: "2024-11-09", n: 18 },
+        { name: "校园摄影采风", date: "2024-11-16", n: 25 }
+      ];
+      var body = root.querySelector("#dm1-body");
+      var count = root.querySelector("#dm1-count");
+      var msg = root.querySelector("#dm1-msg");
+
+      function render() {
+        if (!data.length) {
+          body.innerHTML = '<tr><td colspan="3" class="d-empty">还没有活动，先发布一个吧。</td></tr>';
+        } else {
+          body.innerHTML = data.map(function (d) {
+            return "<tr><td>" + esc(d.name) + '</td><td class="d-info">' + esc(d.date) +
+                   '</td><td>' + d.n + " 人</td></tr>";
+          }).join("");
+        }
+        count.textContent = "共 " + data.length + " 个活动";
+      }
+
+      root.querySelector("#dm1-add").addEventListener("click", function () {
+        var name = root.querySelector("#dm1-name").value.trim();
+        var date = root.querySelector("#dm1-date").value;
+        var desc = root.querySelector("#dm1-desc").value.trim();
+        if (!name || !date) {
+          msg.className = "d-msg is-on is-err";
+          msg.textContent = "请填写活动名称和日期后再发布。";
+          return;
+        }
+        data.push({ name: name, date: date, n: 0 });
+        root.querySelector("#dm1-name").value = "";
+        root.querySelector("#dm1-date").value = "";
+        root.querySelector("#dm1-desc").value = "";
+        msg.className = "d-msg is-on";
+        msg.textContent = "已发布「" + name + "」" + (desc ? "，简介：" + desc : "") + "。";
+        render();
+      });
+
+      render();
+    }
+  };
+
+  /* 2 — 学生成绩统计分析小程序 */
+  DEMOS[1] = {
+    tag: "Python / 数据可视化",
+    html:
+      '<div class="wrap">' +
+        '<span class="d-eyebrow">成绩统计分析</span>' +
+        '<h2 class="d-title">学生成绩统计</h2>' +
+        '<p class="d-sub">输入成绩（逗号分隔），自动计算平均分、最高分、及格率并绘制分布。</p>' +
+        '<div class="card">' +
+          '<label class="d-label" for="dm2-in">成绩列表</label>' +
+          '<input type="text" id="dm2-in" value="88, 92, 75, 64, 97, 81, 58, 90, 73, 85">' +
+          '<div class="d-actions mt"><button class="d-btn" type="button" id="dm2-run">开始统计</button>' +
+            '<button class="d-btn d-btn-ghost" type="button" id="dm2-reset">恢复示例</button></div>' +
+          '<div class="d-msg is-err" id="dm2-err"></div>' +
+        '</div>' +
+        '<div class="card">' +
+          '<div class="d-stat-row">' +
+            '<div class="d-stat"><div class="d-stat-l">平均分</div><div class="d-stat-v" id="dm2-avg">—</div></div>' +
+            '<div class="d-stat"><div class="d-stat-l">最高分</div><div class="d-stat-v" id="dm2-max">—</div></div>' +
+            '<div class="d-stat"><div class="d-stat-l">最低分</div><div class="d-stat-v" id="dm2-min">—</div></div>' +
+            '<div class="d-stat"><div class="d-stat-l">及格率</div><div class="d-stat-v" id="dm2-pass">—</div></div>' +
+          '</div>' +
+          '<h3>成绩分布</h3>' +
+          '<div id="dm2-bars"></div>' +
+        '</div>' +
+      '</div>',
+    init: function (root) {
+      var SAMPLE = "88, 92, 75, 64, 97, 81, 58, 90, 73, 85";
+      var bands = [
+        { label: "90-100", lo: 90, hi: 100 },
+        { label: "80-89", lo: 80, hi: 89 },
+        { label: "70-79", lo: 70, hi: 79 },
+        { label: "60-69", lo: 60, hi: 69 },
+        { label: "60 以下", lo: 0, hi: 59 }
+      ];
+
+      function run() {
+        var raw = root.querySelector("#dm2-in").value;
+        var err = root.querySelector("#dm2-err");
+        var parts = raw.split(/[,，\s]+/).filter(function (x) { return x !== ""; });
+        var nums = [];
+        for (var i = 0; i < parts.length; i++) {
+          var v = Number(parts[i]);
+          if (!isFinite(v) || v < 0 || v > 100) {
+            err.className = "d-msg is-on is-err";
+            err.textContent = "「" + parts[i] + "」不是有效的 0-100 分数，请检查输入。";
+            return;
+          }
+          nums.push(v);
+        }
+        if (!nums.length) {
+          err.className = "d-msg is-on is-err";
+          err.textContent = "请至少输入一个成绩。";
+          return;
+        }
+        err.className = "d-msg";
+
+        var sum = nums.reduce(function (a, b) { return a + b; }, 0);
+        var avg = sum / nums.length;
+        var max = Math.max.apply(null, nums);
+        var min = Math.min.apply(null, nums);
+        var pass = nums.filter(function (n) { return n >= 60; }).length;
+
+        root.querySelector("#dm2-avg").textContent = avg.toFixed(1);
+        root.querySelector("#dm2-max").textContent = String(max);
+        root.querySelector("#dm2-min").textContent = String(min);
+        root.querySelector("#dm2-pass").textContent = Math.round(pass / nums.length * 100) + "%";
+
+        var maxCount = 0;
+        var stats = bands.map(function (b) {
+          var c = nums.filter(function (n) { return n >= b.lo && n <= b.hi; }).length;
+          if (c > maxCount) { maxCount = c; }
+          return { label: b.label, count: c };
+        });
+
+        root.querySelector("#dm2-bars").innerHTML = stats.map(function (s) {
+          var pct = maxCount ? Math.round(s.count / maxCount * 100) : 0;
+          return '<div class="bar-row"><span class="bar-name">' + s.label + '</span>' +
+                 '<span class="bar-track"><span class="bar-fill" style="width:' + pct + '%"></span></span>' +
+                 '<span class="bar-val">' + s.count + ' 人</span></div>';
+        }).join("");
+      }
+
+      root.querySelector("#dm2-run").addEventListener("click", run);
+      root.querySelector("#dm2-reset").addEventListener("click", function () {
+        root.querySelector("#dm2-in").value = SAMPLE;
+        run();
+      });
+      root.querySelector("#dm2-in").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") { run(); }
+      });
+      run();
+    }
+  };
+
+  /* 3 — 个人博客静态页面 */
+  DEMOS[2] = {
+    tag: "HTML / CSS / 响应式布局",
+    html:
+      '<div class="wrap">' +
+        '<span class="d-eyebrow">个人博客</span>' +
+        '<h2 class="d-title">深色简约博客</h2>' +
+        '<p class="d-sub">点击任意文章展开正文，列表与详情的切换在同一个页面内完成。</p>' +
+        '<div class="card" id="dm3-list"></div>' +
+      '</div>',
+    init: function (root) {
+      var posts = [
+        {
+          t: "我是怎么把首屏加载从 1.2MB 压到 34KB 的",
+          d: "2024-10-21",
+          s: "一次彻底的技术栈减法：砍掉框架之后，页面反而更快也更稳。",
+          b: "起因是一张 Lighthouse 报告。首屏要等一个 1.2MB 的 JS 包下载解析完才能显示第一个字。<br><br>我先把页面内容拆成「静态骨架 + 少量交互」两部分，然后用构建脚本生成每个语言版本的 HTML，把关键 CSS 内联进 head。剩下的 JavaScript 只保留真正需要事件的部分，大约 6KB。<br><br>最终首屏从 3.2 秒降到 0.4 秒，构建流程反而更简单了。"
+        },
+        {
+          t: "深色主题不是把背景涂黑就完事",
+          d: "2024-09-30",
+          s: "对比度、层级和边界感，才是深色界面真正难的地方。",
+          b: "很多人做深色主题就是把 #fff 换成 #000，结果所有元素糊成一片。<br><br>关键有三点：一是别用纯黑配纯白，正文用 #e0e0e0 之类的浅灰更耐看；二是层级要靠「明度递进」而不是阴影，深色下阴影几乎不可见；三是边界线要降到 10% 左右的不透明度，太亮会显得刺眼。<br><br>我在这套博客模板里把这三点都调过一遍，长时间阅读的疲劳感明显下降了。"
+        },
+        {
+          t: "移动端优先，其实是一种约束设计",
+          d: "2024-08-15",
+          s: "先做窄屏，你会发现很多桌面端的装饰其实都是噪音。",
+          b: "习惯先做桌面端的人，往往会在收缩到手机时才发现侧边栏放不下、表格横向溢出。<br><br>反过来先做手机：你被迫回答「什么才是最重要的信息」，然后把次要内容一层层往后放。<br><br>这套博客的正文就是单栏流式排版，行宽控制在 65 个字符左右，在任何屏幕上都不需要横向滚动。"
+        }
+      ];
+
+      var list = root.querySelector("#dm3-list");
+      list.innerHTML = posts.map(function (p, i) {
+        return '<div class="blog-item" data-i="' + i + '">' +
+                 "<h4>" + esc(p.t) + "</h4>" +
+                 "<p>" + esc(p.s) + "</p>" +
+                 '<div class="blog-meta">' + esc(p.d) + ' · 约 3 分钟</div>' +
+                 '<div class="blog-body">' + p.b + "</div>" +
+               "</div>";
+      }).join("");
+
+      Array.prototype.forEach.call(list.querySelectorAll(".blog-item"), function (item) {
+        item.addEventListener("click", function () {
+          item.classList.toggle("is-open");
+        });
+      });
+    }
+  };
+
+  /* 4 — 图书管理系统 */
+  DEMOS[3] = {
+    tag: "HTML / CSS / 数据库",
+    html:
+      '<div class="wrap-wide">' +
+        '<span class="d-eyebrow">图书管理</span>' +
+        '<h2 class="d-title">图书管理系统</h2>' +
+        '<p class="d-sub">图书录入、借阅登记与读者信息管理，数据以关联记录的形式维护。</p>' +
+        '<div class="card">' +
+          '<h3>图书录入</h3>' +
+          '<div class="grid-3">' +
+            '<div class="field"><label class="d-label" for="dm4-t">书名</label>' +
+              '<input type="text" id="dm4-t" placeholder="书名"></div>' +
+            '<div class="field"><label class="d-label" for="dm4-a">作者</label>' +
+              '<input type="text" id="dm4-a" placeholder="作者"></div>' +
+            '<div class="field"><label class="d-label" for="dm4-i">ISBN</label>' +
+              '<input type="text" id="dm4-i" placeholder="ISBN"></div>' +
+          '</div>' +
+          '<div class="d-actions"><button class="d-btn" type="button" id="dm4-add">录入图书</button></div>' +
+          '<div class="d-msg" id="dm4-msg"></div>' +
+        '</div>' +
+        '<div class="card">' +
+          '<div class="row-between" style="margin-bottom:12px">' +
+            '<h3 style="margin:0">馆藏与借阅状态</h3>' +
+            '<span class="d-tag" id="dm4-count"></span>' +
+          '</div>' +
+          '<table class="d-table">' +
+            '<thead><tr><th>书名</th><th>作者</th><th>ISBN</th><th>状态</th><th>操作</th></tr></thead>' +
+            '<tbody id="dm4-body"></tbody>' +
+          '</table>' +
+        '</div>' +
+      '</div>',
+    init: function (root) {
+      var books = [
+        { t: "JavaScript 高级程序设计", a: "Nicholas C. Zakas", i: "9787115545381", out: true },
+        { t: "深入理解计算机系统", a: "Randal E. Bryant", i: "9787111544937", out: false },
+        { t: "数据库系统概念", a: "Abraham Silberschatz", i: "9787111375296", out: false }
+      ];
+      var body = root.querySelector("#dm4-body");
+      var count = root.querySelector("#dm4-count");
+      var msg = root.querySelector("#dm4-msg");
+
+      function render() {
+        body.innerHTML = books.map(function (b, i) {
+          var state = b.out
+            ? '<span class="d-warn">已借出</span>'
+            : '<span class="d-ok">在馆</span>';
+          return "<tr><td>" + esc(b.t) + "</td><td>" + esc(b.a) + "</td>" +
+                 '<td class="d-info">' + esc(b.i) + "</td>" +
+                 "<td>" + state + "</td>" +
+                 '<td><button class="d-btn d-btn-ghost" type="button" data-i="' + i +
+                 '" style="height:30px;padding:0 11px;font-size:12px">' +
+                 (b.out ? "登记归还" : "登记借出") + "</button></td></tr>";
+        }).join("");
+
+        var outN = books.filter(function (b) { return b.out; }).length;
+        count.textContent = "共 " + books.length + " 册 · 借出 " + outN + " 册";
+
+        Array.prototype.forEach.call(body.querySelectorAll("button[data-i]"), function (btn) {
+          btn.addEventListener("click", function () {
+            var b = books[Number(btn.getAttribute("data-i"))];
+            b.out = !b.out;
+            msg.className = "d-msg is-on";
+            msg.textContent = "「" + b.t + "」已登记为" + (b.out ? "借出" : "归还") + "。";
+            render();
+          });
+        });
+      }
+
+      root.querySelector("#dm4-add").addEventListener("click", function () {
+        var t = root.querySelector("#dm4-t").value.trim();
+        var a = root.querySelector("#dm4-a").value.trim();
+        var i = root.querySelector("#dm4-i").value.trim();
+        if (!t || !a) {
+          msg.className = "d-msg is-on is-err";
+          msg.textContent = "书名和作者为必填项。";
+          return;
+        }
+        books.push({ t: t, a: a, i: i || "—", out: false });
+        root.querySelector("#dm4-t").value = "";
+        root.querySelector("#dm4-a").value = "";
+        root.querySelector("#dm4-i").value = "";
+        msg.className = "d-msg is-on";
+        msg.textContent = "已录入「" + t + "」。";
+        render();
+      });
+
+      render();
+    }
+  };
+
+  /* 5 — 在线问卷收集页面 */
+  DEMOS[4] = {
+    tag: "JavaScript / 表单 / CSS",
+    html:
+      '<div class="wrap">' +
+        '<span class="d-eyebrow">在线问卷</span>' +
+        '<h2 class="d-title">校园服务满意度问卷</h2>' +
+        '<p class="d-sub">每一项都在填写时即时校验，错误提示就近显示，不用等到最后一起报错。</p>' +
+        '<div class="card">' +
+          '<div class="field"><label class="d-label" for="dm5-name">姓名</label>' +
+            '<input type="text" id="dm5-name" placeholder="请输入姓名">' +
+            '<div class="d-err" id="dm5-name-e">请填写姓名</div></div>' +
+          '<div class="field"><label class="d-label" for="dm5-mail">邮箱</label>' +
+            '<input type="email" id="dm5-mail" placeholder="name@example.com">' +
+            '<div class="d-err" id="dm5-mail-e">请填写有效的邮箱地址</div></div>' +
+          '<div class="field"><label class="d-label" for="dm5-score">总体满意度（1-5 分）</label>' +
+            '<select id="dm5-score">' +
+              '<option value="">请选择</option>' +
+              '<option value="5">5 分 · 非常满意</option>' +
+              '<option value="4">4 分 · 比较满意</option>' +
+              '<option value="3">3 分 · 一般</option>' +
+              '<option value="2">2 分 · 不太满意</option>' +
+              '<option value="1">1 分 · 很不满意</option>' +
+            '</select>' +
+            '<div class="d-err" id="dm5-score-e">请选择一个满意度评分</div></div>' +
+          '<div class="field"><label class="d-label" for="dm5-note">建议（选填，不少于 5 个字）</label>' +
+            '<textarea id="dm5-note" placeholder="欢迎写下你的建议"></textarea>' +
+            '<div class="d-err" id="dm5-note-e">如果填写建议，请至少写 5 个字</div></div>' +
+          '<div class="d-actions"><button class="d-btn" type="button" id="dm5-sub">提交问卷</button></div>' +
+          '<div class="d-msg" id="dm5-msg"></div>' +
+        '</div>' +
+      '</div>',
+    init: function (root) {
+      var rules = [
+        { id: "dm5-name", err: "dm5-name-e", test: function (v) { return v.trim().length > 0; } },
+        { id: "dm5-mail", err: "dm5-mail-e", test: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()); } },
+        { id: "dm5-score", err: "dm5-score-e", test: function (v) { return v !== ""; } },
+        { id: "dm5-note", err: "dm5-note-e", test: function (v) { return v.trim() === "" || v.trim().length >= 5; } }
+      ];
+
+      function checkOne(r) {
+        var input = root.querySelector("#" + r.id);
+        var err = root.querySelector("#" + r.err);
+        var ok = r.test(input.value);
+        err.className = ok ? "d-err" : "d-err is-on";
+        input.classList.toggle("d-invalid", !ok);
+        return ok;
+      }
+
+      rules.forEach(function (r) {
+        var input = root.querySelector("#" + r.id);
+        input.addEventListener("blur", function () { checkOne(r); });
+        input.addEventListener("input", function () {
+          if (input.classList.contains("d-invalid")) { checkOne(r); }
+        });
+      });
+
+      root.querySelector("#dm5-sub").addEventListener("click", function () {
+        var msg = root.querySelector("#dm5-msg");
+        var allOk = true;
+        rules.forEach(function (r) { if (!checkOne(r)) { allOk = false; } });
+
+        if (!allOk) {
+          msg.className = "d-msg is-on is-err";
+          msg.textContent = "还有几项没有填写正确，请检查标红的字段。";
+          return;
+        }
+        var name = root.querySelector("#dm5-name").value.trim();
+        var score = root.querySelector("#dm5-score").value;
+        msg.className = "d-msg is-on";
+        msg.textContent = "感谢 " + name + " 的反馈，满意度评分：" + score + " 分，问卷已提交。";
+      });
+    }
+  };
+
+  /* 6 — 简易天气查询网页 */
+  DEMOS[5] = {
+    tag: "JavaScript / API",
+    html:
+      '<div class="wrap">' +
+        '<span class="d-eyebrow">天气查询</span>' +
+        '<h2 class="d-title">城市天气查询</h2>' +
+        '<p class="d-sub">输入城市名称查询天气，背景会随天气状态自动切换。（演示数据为本地模拟）</p>' +
+        '<div class="card">' +
+          '<div class="row">' +
+            '<input type="text" id="dm6-city" placeholder="输入城市名，例如：北京" style="flex:1 1 200px">' +
+            '<button class="d-btn" type="button" id="dm6-go">查询</button>' +
+          '</div>' +
+          '<div class="row mt">' +
+            '<button class="d-btn d-btn-ghost" type="button" data-city="北京" style="height:30px;padding:0 11px;font-size:12px">北京</button>' +
+            '<button class="d-btn d-btn-ghost" type="button" data-city="上海" style="height:30px;padding:0 11px;font-size:12px">上海</button>' +
+            '<button class="d-btn d-btn-ghost" type="button" data-city="广州" style="height:30px;padding:0 11px;font-size:12px">广州</button>' +
+            '<button class="d-btn d-btn-ghost" type="button" data-city="成都" style="height:30px;padding:0 11px;font-size:12px">成都</button>' +
+          '</div>' +
+          '<div class="d-msg is-err" id="dm6-err"></div>' +
+        '</div>' +
+        '<div id="dm6-out" class="mt"></div>' +
+      '</div>',
+    init: function (root) {
+      var DB = {
+        "北京": { t: 8, c: "晴", h: "32%", w: "3 级", sky: "clear" },
+        "上海": { t: 15, c: "多云", h: "68%", w: "2 级", sky: "cloud" },
+        "广州": { t: 24, c: "小雨", h: "82%", w: "2 级", sky: "rain" },
+        "成都": { t: 13, c: "阴", h: "74%", w: "1 级", sky: "cloud" },
+        "哈尔滨": { t: -6, c: "小雪", h: "58%", w: "4 级", sky: "rain" },
+        "深圳": { t: 26, c: "晴", h: "70%", w: "3 级", sky: "clear" }
+      };
+      var SKY = {
+        clear: "radial-gradient(120% 100% at 50% 0%, #3d4a63 0%, #161a21 55%, #07080b 100%)",
+        cloud: "radial-gradient(120% 100% at 50% 0%, #33383f 0%, #14161a 55%, #070708 100%)",
+        rain:  "radial-gradient(120% 100% at 50% 0%, #26323f 0%, #10151b 55%, #05070a 100%)"
+      };
+
+      function query(city) {
+        var err = root.querySelector("#dm6-err");
+        var out = root.querySelector("#dm6-out");
+        if (!city) {
+          err.className = "d-msg is-on is-err";
+          err.textContent = "请输入城市名称。";
+          return;
+        }
+        var d = DB[city];
+        if (!d) {
+          err.className = "d-msg is-on is-err";
+          err.textContent = "没有找到「" + city + "」的天气数据，试试：北京、上海、广州、成都、哈尔滨、深圳。";
+          out.innerHTML = "";
+          return;
+        }
+        err.className = "d-msg";
+        out.innerHTML =
+          '<div class="weather-panel" style="background:' + SKY[d.sky] + '">' +
+            '<div class="weather-temp">' + d.t + '°</div>' +
+            '<div class="weather-city">' + esc(city) + '</div>' +
+            '<div class="weather-cond">' + esc(d.c) + " · 湿度 " + esc(d.h) + " · 风力 " + esc(d.w) + '</div>' +
+          '</div>';
+      }
+
+      root.querySelector("#dm6-go").addEventListener("click", function () {
+        query(root.querySelector("#dm6-city").value.trim());
+      });
+      root.querySelector("#dm6-city").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") { query(root.querySelector("#dm6-city").value.trim()); }
+      });
+      Array.prototype.forEach.call(root.querySelectorAll("button[data-city]"), function (b) {
+        b.addEventListener("click", function () {
+          var c = b.getAttribute("data-city");
+          root.querySelector("#dm6-city").value = c;
+          query(c);
+        });
+      });
+
+      query("北京");
+    }
+  };
+
+  /* 7 — 图片画廊展示网站 */
+  DEMOS[6] = {
+    tag: "CSS / 动画 / HTML",
+    html:
+      '<div class="wrap-wide">' +
+        '<span class="d-eyebrow">图片画廊</span>' +
+        '<h2 class="d-title">作品画廊</h2>' +
+        '<p class="d-sub">点击任意图片放大预览，按 Esc 或点击空白处关闭。</p>' +
+        '<div class="gal" id="dm7-gal"></div>' +
+      '</div>' +
+      '<div class="lightbox" id="dm7-lb">' +
+        '<div class="lightbox-inner" id="dm7-lb-in"></div>' +
+      '</div>',
+    init: function (root) {
+      var items = [
+        { n: "晨雾 · 山谷", c: "tg-1" },
+        { n: "黄昏 · 城市", c: "tg-2" },
+        { n: "林间 · 小径", c: "tg-3" },
+        { n: "沙丘 · 光影", c: "tg-4" },
+        { n: "夜色 · 窗台", c: "tg-5" },
+        { n: "海岸 · 礁石", c: "tg-6" },
+        { n: "花房 · 午后", c: "tg-7" },
+        { n: "田野 · 风起", c: "tg-8" }
+      ];
+
+      var gal = root.querySelector("#dm7-gal");
+      gal.innerHTML = items.map(function (it, i) {
+        return '<button class="gal-item ' + it.c + '" type="button" data-i="' + i + '" ' +
+               'aria-label="放大查看：' + esc(it.n) + '"><span>' + esc(it.n) + '</span></button>';
+      }).join("");
+
+      var lb = root.querySelector("#dm7-lb");
+      var inner = root.querySelector("#dm7-lb-in");
+
+      function open(i) {
+        inner.className = "lightbox-inner " + items[i].c;
+        inner.innerHTML = "<span>" + esc(items[i].n) + " · 放大预览</span>";
+        lb.classList.add("is-open");
+      }
+      function close() { lb.classList.remove("is-open"); }
+
+      Array.prototype.forEach.call(gal.querySelectorAll(".gal-item"), function (b) {
+        b.addEventListener("click", function () { open(Number(b.getAttribute("data-i"))); });
+      });
+      lb.addEventListener("click", close);
+      root._onEsc = function (e) { if (e.key === "Escape") { close(); } };
+      document.addEventListener("keydown", root._onEsc);
+    },
+    destroy: function (root) {
+      if (root._onEsc) { document.removeEventListener("keydown", root._onEsc); }
+    }
+  };
+
+  /* 8 — 校园导航信息页面 */
+  DEMOS[7] = {
+    tag: "响应式布局 / HTML / CSS",
+    html:
+      '<div class="wrap-wide">' +
+        '<span class="d-eyebrow">校园信息</span>' +
+        '<h2 class="d-title">校园导航与通知</h2>' +
+        '<p class="d-sub">校园地点、最新通知与校内服务入口集中在同一个页面。</p>' +
+        '<div class="card">' +
+          '<div class="row-between" style="margin-bottom:12px">' +
+            '<h3 style="margin:0">校园地点</h3>' +
+            '<input type="text" id="dm8-q" placeholder="搜索地点…" style="max-width:200px">' +
+          '</div>' +
+          '<div class="nav-grid" id="dm8-places"></div>' +
+          '<div class="d-empty" id="dm8-none" style="display:none">没有找到匹配的地点。</div>' +
+        '</div>' +
+        '<div class="card">' +
+          '<h3>最新通知</h3>' +
+          '<table class="d-table"><tbody id="dm8-notice"></tbody></table>' +
+        '</div>' +
+        '<div class="card">' +
+          '<h3>校内服务入口</h3>' +
+          '<div class="nav-grid" id="dm8-svc"></div>' +
+        '</div>' +
+      '</div>',
+    init: function (root) {
+      var places = [
+        { n: "图书馆", d: "一层设自助借还机，四层为自习区。", t: "8:00 - 22:00" },
+        { n: "第一教学楼", d: "公共课主要授课地点，共 6 层。", t: "6:30 - 22:30" },
+        { n: "学生活动中心", d: "社团活动室与报告厅所在地。", t: "9:00 - 21:00" },
+        { n: "体育馆", d: "含羽毛球馆、篮球场与游泳馆。", t: "7:00 - 21:30" },
+        { n: "学生食堂", d: "三层风味窗口，二层为清真餐厅。", t: "6:30 - 21:00" },
+        { n: "校医院", d: "提供基础门诊与常见病用药。", t: "8:00 - 18:00" }
+      ];
+      var notices = [
+        { t: "关于期中教学检查的通知", d: "2024-10-28" },
+        { t: "图书馆延长开放时间至 22:30", d: "2024-10-25" },
+        { t: "校园一卡通系统升级维护公告", d: "2024-10-20" },
+        { t: "秋季运动会报名开始", d: "2024-10-18" }
+      ];
+      var services = [
+        { n: "教务系统", d: "选课 / 成绩查询" },
+        { n: "图书馆借阅", d: "续借与预约" },
+        { n: "一卡通充值", d: "余额与消费记录" },
+        { n: "宿舍报修", d: "在线提交维修单" },
+        { n: "心理咨询预约", d: "预约与取消" },
+        { n: "失物招领", d: "发布与查询" }
+      ];
+
+      var box = root.querySelector("#dm8-places");
+      var none = root.querySelector("#dm8-none");
+
+      function renderPlaces(kw) {
+        var list = places.filter(function (p) {
+          return !kw || p.n.indexOf(kw) > -1 || p.d.indexOf(kw) > -1;
+        });
+        none.style.display = list.length ? "none" : "block";
+        box.innerHTML = list.map(function (p) {
+          return '<div class="nav-card"><h4>' + esc(p.n) + "</h4><p>" + esc(p.d) + "</p>" +
+                 '<span class="d-tag">' + esc(p.t) + "</span></div>";
+        }).join("");
+      }
+
+      root.querySelector("#dm8-notice").innerHTML = notices.map(function (n) {
+        return '<tr><td style="width:auto">' + esc(n.t) + '</td>' +
+               '<td class="d-info" style="width:110px;text-align:right">' + esc(n.d) + "</td></tr>";
+      }).join("");
+
+      root.querySelector("#dm8-svc").innerHTML = services.map(function (s) {
+        return '<div class="nav-card"><h4>' + esc(s.n) + "</h4><p>" + esc(s.d) + "</p></div>";
+      }).join("");
+
+      root.querySelector("#dm8-q").addEventListener("input", function (e) {
+        renderPlaces(e.target.value.trim());
+      });
+      renderPlaces("");
+    }
+  };
+
+  /* ---------- preview overlay ---------- */
+  var preview = document.getElementById("preview");
+  var previewStage = document.getElementById("preview-stage");
+  var previewName = document.getElementById("preview-name");
+  var previewTag = document.getElementById("preview-tag");
+  var currentDemo = null;
+
+  function openPreview(i) {
+    var demo = DEMOS[i];
+    if (!demo) { return; }
+    if (currentDemo && currentDemo.destroy) { currentDemo.destroy(previewStage); }
+    currentDemo = demo;
+
+    previewName.textContent = PROJECTS[i].title.replace(/<[^>]+>/g, "");
+    previewTag.textContent = demo.tag || "";
+    previewStage.innerHTML = '<div class="demo">' + demo.html + "</div>";
+    previewStage.scrollTop = 0;
+
+    preview.classList.add("is-open");
+    preview.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    if (demo.init) {
+      try { demo.init(previewStage); }
+      catch (err) { previewStage.querySelector(".demo").innerHTML = '<div class="d-empty">演示加载失败。</div>'; }
+    }
+    var back = document.getElementById("preview-back");
+    if (back) { back.focus(); }
+  }
+
+  function closePreview() {
+    if (!preview.classList.contains("is-open")) { return; }
+    if (currentDemo && currentDemo.destroy) { currentDemo.destroy(previewStage); }
+    currentDemo = null;
+    preview.classList.remove("is-open");
+    preview.setAttribute("aria-hidden", "true");
+    previewStage.innerHTML = "";
+    /* the project modal may still be open underneath — keep the body locked if so */
+    if (!modal.classList.contains("is-open")) { document.body.style.overflow = ""; }
+    var back = document.getElementById("preview-back");
+    if (back) { back.focus(); }
+  }
+
+  /* "在线预览" lives inside the modal, which is re-rendered on every open,
+     so bind via delegation on the modal container. */
+  modal.addEventListener("click", function (e) {
+    var btn = e.target && e.target.closest ? e.target.closest("[data-preview]") : null;
+    if (!btn) { return; }
+    openPreview(Number(btn.getAttribute("data-preview")));
+  });
+
+  document.getElementById("preview-back").addEventListener("click", closePreview);
+  document.addEventListener("keydown", function (e) {
+    if ((e.key === "Escape" || e.key === "Esc") && preview.classList.contains("is-open")) {
+      closePreview();
+    }
+  });
+
+  /* ---------- expose a tiny API so you can swap content without touching markup ---------- */
+  window.Portfolio = {
+    projects: PROJECTS,
+    open: openModal,
+    close: closeModal,
+    preview: openPreview,
+    closePreview: closePreview,
+    filter: function (cat) {
+      var btn = filtersBox.querySelector('[data-cat="' + cat + '"]');
+      if (btn) { applyFilter(cat, btn); }
+    }
+  };
+})();
+</script>
+</body>
+</html>
